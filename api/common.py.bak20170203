@@ -1,0 +1,145 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+from web.models import HostInfo,CpuInfo,MemoryInfo,HardwareInfo,NetworkInfo
+
+
+#处理数据
+def solve_request(data):
+    try:
+        hostname = data['hostinfo']['hostname']
+    except Exception,e:
+        print e
+        return "data is invaild"
+        
+    if HostInfo.objects.filter(hostname=hostname).exists():
+        return _data_update(data)
+    else:
+        return _data_insert(data)
+        
+        
+#新数据插入
+def _data_insert(data):
+    try:
+        hostInfo = data['hostinfo']
+        hardwareInfo = data['hardwareinfo']
+        cpuInfo = data['cpuinfo']
+        memInfo = data['meminfo']
+        networkInfo = data['networkinfo']
+        #print hostInfo
+        #插入主机信息
+        newhost = HostInfo.objects.create(
+                                          hostname = hostInfo['hostname'],
+                                          machineType = hostInfo['machineType'],
+                                          os = hostInfo['os'],
+                                          kernal = hostInfo['systemKernal']
+                                          )
+        #print newhost.os
+        #插入cpu信息
+        newcpu = CpuInfo(
+                         cpuModel = cpuInfo['cpuModel'],
+                         cpuPhysical = int(cpuInfo['cpuPhysical']),
+                         cpuCore = int(cpuInfo['cpuCore']),
+                         cpuProcess = int(cpuInfo['cpuProcess']),
+                         host = newhost
+                         )
+        newcpu.save()
+        
+        #插入内存信息
+        for locator,memparam in memInfo.items():
+            newmem = MemoryInfo(
+                                memSize = int(memparam['size'].split()[0]),
+                                memSpeed = memparam['speed'],
+                                locator = locator,
+                                memSerialNum = memparam['msn'],
+                                memType = memparam['type'],
+                                host = newhost
+                                )
+            newmem.save()
+        
+        #插入硬件信息
+        newhardware = HardwareInfo(
+                                   product = hardwareInfo['Product'],
+                                   manufacturer = hardwareInfo['Manufacturer'],
+                                   uuid = hardwareInfo['UUID'],
+                                   serialNumber = hardwareInfo['SN'],
+                                   host = newhost
+                                   )  
+        newhardware.save()
+        
+        #插入网络信息
+        for nic,addr in networkInfo.items():
+            newnetwork = NetworkInfo(
+                                     nic = nic,
+                                     ipaddr = addr,
+                                     host = newhost
+                                     )
+            newnetwork.save()
+            
+        return "insert data ok"
+    except Exception,e:
+        print e,111
+        return "insert error"
+
+
+
+#已存在更新
+def _data_update(data):
+    try:
+        hostInfo = data['hostinfo']
+        hardwareInfo = data['hardwareinfo']
+        cpuInfo = data['cpuinfo']
+        memInfo = data['meminfo']
+        networkInfo = data['networkinfo']
+        
+        #类型objects对象 不能用queryset的update批量更新方法
+        updatebase = HostInfo.objects.get(hostname = hostInfo['hostname'])
+        #更新表数据,hostname不更新
+        updatebase.os = hostInfo['os']
+        updatebase.machineType = hostInfo['machineType']
+        updatebase.kernal = hostInfo['systemKernal']
+        updatebase.save()
+        
+        #更新关联的cpu信息
+        #print cpuInfo
+        updatecpu = CpuInfo.objects.get(host = updatebase)
+        updatecpu.cpuModel = cpuInfo['cpuModel']
+        updatecpu.cpuPhysical = int(cpuInfo['cpuPhysical'])
+        updatecpu.cpuCore = int(cpuInfo['cpuCore'])
+        updatecpu.cpuProcess = int(cpuInfo['cpuProcess'])
+        updatecpu.save()
+        
+        #更新关联的hardware信息
+        updatehardware = HardwareInfo.objects.get(host = updatebase)
+        updatehardware.product = hardwareInfo['Product']
+        updatehardware.manufacturer = hardwareInfo['Manufacturer']
+        updatehardware.uuid = hardwareInfo['UUID']
+        updatehardware.serialNumber = hardwareInfo['SN']
+        updatehardware.save()
+        
+
+        #更新关联的memory信息,先删除旧数据再插入新数据
+        MemoryInfo.objects.filter(host = updatebase).delete()
+        for locator,memparam in memInfo.items():
+            MemoryInfo.objects.create(
+                                      memSize = int(memparam['size'].split()[0]),
+                                      memSpeed = memparam['speed'],
+                                      locator = locator,
+                                      memSerialNum = memparam['msn'],
+                                      memType = memparam['type'],
+                                      host = updatebase
+                                      )
+        
+        #更新网卡信息，先删除后插入
+        NetworkInfo.objects.filter(host = updatebase).delete()
+        for nic,addr in networkInfo.items():
+            newnetwork = NetworkInfo(
+                                     nic = nic,
+                                     ipaddr = addr,
+                                     host = updatebase
+                                     )
+            newnetwork.save()
+
+        return "update data ok"
+    except Exception,e:
+        print e,222
+        return "update error"

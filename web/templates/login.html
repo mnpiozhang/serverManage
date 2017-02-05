@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>登录</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">  
+</head>
+<body>
+	
+	<div class="text-center">
+	<div class="jumbotron">
+	<h1>请登录</h1>
+		<form action="/web/login/" method="POST" class="form-signin">
+			<p><input type='text' name='username'  placeholder="用户名"/></p>
+			<p><input type='password' name='password'  placeholder="密码"/></p>
+			<p><input type='submit' value='提交' class="btn btn-primary btn-lg" role="button"/></p>
+			<label style="color:red;">{{ status }}</label>
+		</form>
+	</div>
+	</div>
+</body>
+</html>

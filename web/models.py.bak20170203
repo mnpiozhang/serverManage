@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+from django.db import models
+
+# Create your models here.
+# server data
+
+class HostInfo(models.Model):
+    hostname = models.CharField(max_length=50,unique=True,verbose_name = u'服务器主机名')
+    os = models.CharField(max_length=20,verbose_name = u'操作系统')
+    machineType = models.CharField(max_length=20,verbose_name = u'服务器位数')
+    kernal = models.CharField(max_length=50,verbose_name = u'内核版本')
+    timestamp = models.DateTimeField(auto_now_add = True,verbose_name = u'创建时间')
+
+class NetworkInfo(models.Model):
+    nic = models.CharField(max_length=50,verbose_name = u'网卡')
+    ipaddr = models.GenericIPAddressField(verbose_name = u'网络地址')
+    host = models.ForeignKey(HostInfo,related_name='host_network',verbose_name = u'服务器网卡') 
+
+class MemoryInfo(models.Model):
+    locator = models.CharField(max_length=50,verbose_name = u'内存插槽')
+    memSerialNum = models.CharField(max_length=50,verbose_name = u'内存序列号')
+    memType = models.CharField(max_length=50,verbose_name = u'内存类型')
+    memSpeed = models.CharField(max_length=50,verbose_name = u'内存速度')
+    memSize = models.IntegerField(verbose_name = u'内存大小')
+    host = models.ForeignKey(HostInfo,related_name='host_memory',verbose_name = u'服务器内存') 
+
+class HardwareInfo(models.Model):
+    product = models.CharField(max_length=50,verbose_name = u'产品名称')
+    manufacturer = models.CharField(max_length=50,verbose_name = u'制造商')
+    uuid = models.CharField(max_length=50,verbose_name = u'uuid')
+    serialNumber = models.CharField(max_length=50,verbose_name = u'序列号')
+    host = models.OneToOneField(HostInfo,related_name='host_hardware',verbose_name = u'主机硬件')
+
+class CpuInfo(models.Model):
+    cpuModel = models.CharField(max_length=50,verbose_name = u'cpu型号')
+    cpuPhysical = models.IntegerField(verbose_name = u'物理cpu数量')
+    cpuCore = models.IntegerField(verbose_name = u'cpu内核数')
+    cpuProcess = models.IntegerField(verbose_name = u'cpu线程数')
+    host = models.OneToOneField(HostInfo,related_name='host_cpu',verbose_name = u'主机CPU')
+    
+    
+#manage user data
+class UserInfo(models.Model):
+    username = models.CharField(max_length=50,verbose_name = u'用户名')
+    password = models.CharField(max_length=50,verbose_name = u'密码')
+    type = models.ForeignKey('UserType',verbose_name = u'用户类型')
+    realname = models.CharField(max_length=20,verbose_name = u'真实姓名')
+    telphone = models.CharField(max_length=12,verbose_name = u'用户电话')
+    def __unicode__(self):
+        return self.realname
+    
+class UserType(models.Model):
+    typename= models.CharField(max_length=50,verbose_name = u'用户类型名称')
+    def __unicode__(self):
+        return self.typename

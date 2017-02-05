@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <script src="/static/jquery/jquery.min.js"></script>
+  <script src="/static/bootstrap/js/bootstrap.min.js"></script>  
+  
+
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css" />
+  <script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/";</script>
+  <script type="text/javascript">window.__admin_utc_offset__ = "28800";</script>
+
+  <script type="text/javascript" src="/admin/jsi18n/"></script>
+  <script type="text/javascript" src="/static/admin/js/core.js"></script>
+  <script type="text/javascript" src="/static/admin/js/jquery.js"></script>
+  <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+  <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+  <script type="text/javascript" src="/static/admin/js/actions.js"></script>
+  <script src="/static/bootstrap/js/calendar.js"></script>
+  <script src="/static/bootstrap/js/DateTimeShortcuts.js"></script>
+  
+  <script>$(function () 
+      { $("[data-toggle='popover']").popover({html:true});
+      });
+  </script>
+  
+  
+</head>
+
+<body>
+
+	<div class="navbar navbar-default " role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">导航栏</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" >导航栏</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/web/index/">主机资讯列表</a></li>
+				<li><a href="/web/submit/">添加主机资讯</a></li>
+			</ul>
+			<ul class="navbar-right">
+				<a href="/web/logout/" class="btn btn-primary btn-danger" role="button">退出</a>
+			</ul>
+		</div>
+	</div>
+	</div>
+
+
+	<div class="container">
+	{% block content %}{% endblock %}
+	</div>
+	
+
+
+	<div class="navbar navbar-default " role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" >connected as {{ UserInfoObj.username }}
+			</a>
+		</div>
+		<ul class="navbar-right">
+			<button type="button" class="btn btn-primary" title="个人信息"  
+      		data-container="body" data-toggle="popover" data-placement="top" 
+      		data-content="<br>用户姓名：{{ UserInfoObj.realname }}</br><br>用户类型：{{ UserInfoObj.type }}</br>">
+      		个人信息
+   			</button>
+   		</ul>
+	</div>
+	</div>
+
+
+
+
+
+</body>
+
+
+</html>

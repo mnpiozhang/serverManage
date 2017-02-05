@@ -1,0 +1,188 @@
+{% extends "suit/suit.html" %}
+
+{% block title %}主机咨询详情{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+    <form action='/web/details/{{ id }}/' method='POST'>{% csrf_token %}
+    <div class="G_head_title">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2" style="text-align:center">主机咨询详情</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>主机id</td>
+                    <td>{{ id }}</td>
+                </tr>
+                <tr>
+                    <td>主机名</td>
+                    <td><input type="text" name="formhostname" value="{{ HostObj.hostname }}" placeholder="主机名" style="width:250px" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>操作系统</td>
+                    <td><input type="text" name="formos" value="{{ HostObj.os }}" placeholder="主机名" style="width:250px" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>服务器位数</td>
+                    <td><input type="text" name="formmachinetype" value="{{ HostObj.machineType }}" placeholder="主机名" style="width:250px" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>内核版本</td>
+                    <td><input type="text" name="formkernal" value="{{ HostObj.kernal }}" placeholder="主机名" style="width:250px" class="input-text"></td>
+                </tr>
+            </tbody>
+        </table>
+ 
+    </div>
+        <div class="G_head_verify">
+            <table class="table table-striped table-bordered" >
+
+                <tbody>  
+                	<tr>
+                		<td>创建时间</td>
+                        <td>信息更新时间</td>
+                	</tr>
+
+                	<tr>
+                		<td>{{ HostObj.timestamp|date:"Y-m-d H:i" }}</td>
+                        <td>{{ HostObj.changetime|date:"Y-m-d H:i" }}</td>
+                	</tr>
+                </tbody>
+            </table>
+        </div>
+
+    <div class="G_head_title">
+        <table id="tab" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <td colspan="2">IP地址</td>
+            </tr>
+        </thead>
+			{% for k in HostObj.networkinfo.addrlst %}
+			<tr>
+			<td style="width:1250px"><input type="text" name="formip[]" value="{{ k }}"></td>
+			<td><input type="button" name="del" value="删除"></td>
+			</tr>
+			{% endfor %}
+        </table>
+    </div>
+	<input type="button" name="add" value="增加">
+
+<script type="text/javascript">
+$(function(){
+    $(':button[name=add]').click(function(){
+        insertTr();
+    })
+    $(':button[name=del]').click(function(){
+        $(this).parents('tr').remove();
+    })
+})
+var gradeI=1;
+function insertTr(){
+    var html='';
+    html+='<tr><td><input type="text" name="formip[]" value="127.0.0.1"></td>';
+    html+='<td><input type="button" name="del" value="删除"></td></tr>';
+    $('#tab').append(html);
+    $(':button[name=del]').click(function(){
+        $(this).parents('tr').remove();
+    })   
+    gradeI++;
+}
+</script>
+
+
+    <div class="G_head_title">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="5">内存信息</th>
+                </tr>
+            </thead>
+           	<thead>
+				<tr>
+					<th width="25">插槽</th>
+					<th width="20">内存条序列号</th>
+					<th width="80">类型</th>
+					<th width="50">速度</th>
+					<th width="75">内存大小</th>
+				</tr>
+			</thead>
+            {% for k,v in HostObj.memoryinfo.items %}
+            <tbody>
+                <tr>
+                    <td>{{ k }}</td>
+                    <td>{{ v.msn }}</td>
+                    <td>{{ v.type }}</td>
+                    <td>{{ v.speed }}</td>
+                    <td>{{ v.size }}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="G_head_title">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="4">主板硬件信息</th>
+                </tr>
+            </thead>
+           	<thead>
+				<tr>
+					<th width="25">序列号</th>
+					<th width="20">产品名</th>
+					<th width="80">UUID</th>
+					<th width="50">制造商</th>
+				</tr>
+			</thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="formhwsn" value="{{ HostObj.hardwareinfo.SN }}" placeholder="序列号"  style="width:400px" class="input-text"></td>
+                    <td><input type="text" name="formhwproduct" value="{{ HostObj.hardwareinfo.Product }}" placeholder="产品名"  class="input-text"></td>
+                    <td><input type="text" name="formhwuuid" value="{{ HostObj.hardwareinfo.UUID }}" placeholder="UUID" style="width:300px" class="input-text"></td>
+                    <td><input type="text" name="formhwmanu" value="{{ HostObj.hardwareinfo.Manufacturer }}" placeholder="制造商"  class="input-text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="G_head_title">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="4">CPU信息</th>
+                </tr>
+            </thead>
+           	<thead>
+				<tr>
+					<th width="25">CPU核数</th>
+					<th width="20">CPU型号</th>
+					<th width="80">物理CPU数</th>
+					<th width="50">线程数(逻辑CPU数)</th>
+				</tr>
+			</thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="formcpucore" value="{{ HostObj.cpuinfo.cpuCore }}" placeholder="CPU核数"  class="input-text"></td>
+                    <td><input type="text" name="formcpumodel" value="{{ HostObj.cpuinfo.cpuModel }}" placeholder="CPU型号" size="50" class="input-text"></td>
+                    <td><input type="text" name="formcpupyhsical" value="{{ HostObj.cpuinfo.cpuPhysical }}" placeholder="物理CPU数"  class="input-text"></td>
+                    <td><input type="text" name="formcpuprocess" value="{{ HostObj.cpuinfo.cpuProcess }}" placeholder="线程数(逻辑CPU数)" class="input-text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-group">
+    <input type='submit' value='修改' class="btn btn-primary btn-lg btn-block" role="button"/><label style="color:red;">{{ status }}</label>  
+   	</div>
+    </form>
+</div>
+
+
+{% endblock %}
+
