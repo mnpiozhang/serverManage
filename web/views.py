@@ -55,7 +55,34 @@ def index(request,page=1):
             searchsn = request.GET.get('searchsn',None)
             searchpublish = request.GET.get('searchpublish',None)
             searchip = request.GET.get('searchip',None)
-            allServer = HostInfo.objects(Q(os__contains=searchos)&Q(networkinfo__addrlst__contains=searchip)&Q(hostname__contains=searchhostname)&Q(ispublish__contains=searchpublish)&Q(hardwareinfo__SN__contains=searchsn))
+            tmpstarttime = request.GET.get('searchstarttime',None)
+            tmpendtime = request.GET.get('searchendtime',None)
+            Qset = {}
+            Qset['searchos'] = searchos
+            Qset['searchhostname'] = searchhostname
+            Qset['searchsn'] = searchsn
+            Qset['searchpublish'] = searchpublish
+            Qset['searchip'] = searchip
+            Qset['tmpstarttime'] = tmpstarttime
+            Qset['tmpendtime'] = tmpendtime
+
+            #判断是否输入了开始时间，没输入或输入非法则默认为1970.01.01
+            try:
+                searchstarttime = datetime.datetime.strptime(tmpstarttime,'%Y-%m-%d')
+            except:
+                searchstarttime = datetime.datetime(1970, 1, 1)
+            #判断是否输入了结束时间或输入非法，没输入或输入非法则默认为现在
+            try:
+                searchendtime = datetime.datetime.strptime(tmpendtime,'%Y-%m-%d')
+            except:
+                searchendtime = datetime.datetime.now()
+            allServer = HostInfo.objects(Q(os__contains=searchos)
+                                         &Q(networkinfo__addrlst__contains=searchip)
+                                         &Q(hostname__contains=searchhostname)
+                                         &Q(ispublish__contains=searchpublish)
+                                         &Q(hardwareinfo__SN__contains=searchsn)
+                                         &Q(timestamp__gte=searchstarttime)
+                                         &Q(timestamp__lte=searchendtime))
             AllCount = allServer.count()
             ret['AllCount'] = AllCount
             PageObj = Page(AllCount,page,2)
@@ -67,6 +94,7 @@ def index(request,page=1):
             ret['allServerObj'] = allServerObj
             UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
             ret['UserInfoObj'] = UserInfoObj
+            ret['Qset'] = Qset
             return render_to_response('index.html',ret,context_instance=RequestContext(request))
         #正常主页的分页显示
         else:
@@ -83,7 +111,7 @@ def index(request,page=1):
             ret['UserInfoObj'] = UserInfoObj
             return render_to_response('index.html',ret,context_instance=RequestContext(request))
     else:
-        pass
+        return HttpResponse("this is a web page , please use metod GET")
 
 #显示主机咨询详情并可编辑
 @is_login_auth
