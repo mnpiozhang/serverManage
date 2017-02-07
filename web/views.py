@@ -7,8 +7,9 @@ from decorators import is_login_auth
 from django.template.context import RequestContext
 from django.template.context_processors import csrf
 from mongoengine.queryset.visitor import Q
-from common  import  Page,page_div,query_page_div
+from common  import  Page,page_div,query_page_div,split_form_str
 import datetime
+
 # Create your views here.
 
 #登陆
@@ -127,6 +128,22 @@ def details(request,id):
             formip = request.POST.getlist('formip[]',None)
             #print formip
             #print type(formip)
+            
+            #处理传进来的内存信息
+            formmemlstname = split_form_str(request.body)
+            #print formmemlstname
+            formmem = {}
+            for i in formmemlstname:
+                #有了数组名获取post来的数组
+                tmpmeminfo = request.POST.getlist(i+"[]",None)
+                print tmpmeminfo
+                formmem[formmemlstname[i]] = {
+                                              "msn":tmpmeminfo[0],
+                                              "type":tmpmeminfo[1],
+                                              "speed":tmpmeminfo[2],
+                                              "size":tmpmeminfo[3]
+                                              }
+            #print formmem
             formhwsn = request.POST.get('formhwsn',None)
             formhwproduct = request.POST.get('formhwproduct',None)
             formhwuuid = request.POST.get('formhwuuid',None)
@@ -146,7 +163,8 @@ def details(request,id):
                            networkinfo = networkInfo,
                            hardwareinfo = hardwareInfo,
                            cpuinfo = cpuInfo,
-                           changetime = datetime.datetime.now
+                           changetime = datetime.datetime.now,
+                           memoryinfo = formmem
                            )
             ret['status'] = '修改成功'
             HostObj = HostInfo.objects.get(id=id)

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 #_*_ coding:utf-8 _*_
 from django.utils.safestring import mark_safe
-import pytz
-from elasticsearch import Elasticsearch
+import re
+import urllib
 
 class Page:
     def __init__(self,AllCount,current_page,datanum=2):
@@ -127,3 +127,19 @@ def query_page_div(page,all_page_count,pageurl,querycondition):
     pagelist.append("<a class='pure-button' href='/web/%s/%d?%s'>尾页</a>" %(pageurl,all_page_count,querycondition))
     #将列表类型的页面转换成字符串并且转义html标签能在前台显示
     return mark_safe(' '.join(pagelist))
+
+
+#将传来的post信息做解析，分割过滤后就剩插槽名和js数组名
+def split_form_str(str):
+    tmpdic = {}
+    #transtr = urllib.unquote(str.encode("utf8"))
+    transtr = str.encode("utf8")
+    for i in transtr.split("&"):
+        kv = i.split("=")
+        #print kv
+        #对url字符串解码
+        k = urllib.unquote_plus(kv[0].encode("utf-8"))
+        v = urllib.unquote_plus(kv[1].encode("utf-8"))
+        if re.match('formmem\d+$',k):
+            tmpdic[k] = v
+    return tmpdic
