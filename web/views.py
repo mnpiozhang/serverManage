@@ -182,3 +182,16 @@ def details(request,id):
     #添加跨站请求伪造的认证
     ret.update(csrf(request))
     return render_to_response('details.html',ret)
+
+
+#提交新主机信息
+@is_login_auth
+def submit(request):
+    ret = {'status':'','UserInfoObj':None}
+    if request.method == 'POST':
+        pass
+    else:
+        ret['status'] = '提交成功'
+        UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
+        ret['UserInfoObj'] = UserInfoObj
+        return render_to_response('submit.html',ret)
