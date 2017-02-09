@@ -1,0 +1,208 @@
+{% extends "suit/suit.html" %}
+
+{% block title %}新主机资讯{% endblock %}
+
+
+
+{% block content %}
+<nav class="breadcrumb">首页 <span class="c-gray en">&gt;</span>新主机资讯提交</nav>
+<div class="container">
+    <form action='/web/submit/' method='POST'>{% csrf_token %}
+    <div class="G_head_title">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2" style="text-align:center">新主机资讯提交</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>主机名</td>
+                    <td><input type="text" name="formhostname" value="" placeholder="主机名" style="width:250px" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>操作系统</td>
+                    <td><input type="text" name="formos" value="" placeholder="操作系统" style="width:250px" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>服务器位数</td>
+                    <td><input type="text" name="formmachinetype" value="" placeholder="服务器位数" style="width:250px" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>内核版本</td>
+                    <td><input type="text" name="formkernal" value="" placeholder="内核版本" style="width:250px" class="input-text"></td>
+                </tr>
+            </tbody>
+        </table>
+ 
+    </div>
+
+    <div class="G_head_title">
+        <table id="tab" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <td colspan="2">IP地址</td>
+            </tr>
+        </thead>
+        </table>
+    </div>
+	<input type="button" name="add" value="增加">
+
+<script type="text/javascript">
+$(function(){
+    $(':button[name=add]').click(function(){
+        insertTr();
+    })
+    $(':button[name=del]').click(function(){
+        $(this).parents('tr').remove();
+    })
+})
+var gradeI=1;
+function insertTr(){
+    var html='';
+    html+='<tr><td><input type="text" name="formip[]" value="127.0.0.1"></td>';
+    html+='<td><input type="button" name="del" value="删除"></td></tr>';
+    $('#tab').append(html);
+    $(':button[name=del]').click(function(){
+        $(this).parents('tr').remove();
+    })   
+    gradeI++;
+}
+</script>
+
+
+    <div class="G_head_title">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="6">内存信息</th>
+                </tr>
+            </thead>
+           	<thead>
+				<tr>
+					<th width="25px">插槽</th>
+					<th width="20px">内存条序列号</th>
+					<th width="80px">类型</th>
+					<th width="50px">速度</th>
+					<th width="75px">内存大小</th>
+					<th width="20px">操作</th>
+				</tr>
+			</thead>
+
+            <tbody id="memtab">
+
+            </tbody>
+
+        </table>
+    </div>
+    
+	<input type="button" name="memadd" value="增加">
+<script type="text/javascript">
+var fm=2;
+$(function(){
+    $(':button[name=memadd]').click(function(){
+        insertmemTr();
+    })
+    $(':button[name=memdel]').click(function(){
+        $(this).parents('tr').remove();
+    })
+})
+function insertmemTr(){
+    var html='';
+    html+='<tr><td width="25px"><input type="text" name="formmem'+fm.toString()+'" value="slot"></td>';
+    html+='<td width="20px"><input type="text" name="formmem'+fm.toString()+'[]" value="serial number"></td>';
+    html+='<td width="80px"><input type="text" name="formmem'+fm.toString()+'[]" value="type"></td>';
+    html+='<td width="50px"><input type="text" name="formmem'+fm.toString()+'[]" value="speed"></td>';
+    html+='<td width="75px"><input type="text" name="formmem'+fm.toString()+'[]" value="size"></td>';
+    html+='<td width="20px"><input type="button" name="memdel" value="删除"></td></tr>';
+    $('#memtab').append(html);
+    $(':button[name=memdel]').click(function(){
+        $(this).parents('tr').remove();
+    })
+    fm++;
+}
+</script>
+    
+    <div class="G_head_title">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="4">主板硬件信息</th>
+                </tr>
+            </thead>
+           	<thead>
+				<tr>
+					<th width="25">序列号</th>
+					<th width="20">产品名</th>
+					<th width="80">UUID</th>
+					<th width="50">制造商</th>
+				</tr>
+			</thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="formhwsn" value="" placeholder="序列号"  style="width:400px" class="input-text"></td>
+                    <td><input type="text" name="formhwproduct" value="" placeholder="产品名"  class="input-text"></td>
+                    <td><input type="text" name="formhwuuid" value="" placeholder="UUID" style="width:300px" class="input-text"></td>
+                    <td><input type="text" name="formhwmanu" value="" placeholder="制造商"  class="input-text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="G_head_title">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="4">CPU信息</th>
+                </tr>
+            </thead>
+           	<thead>
+				<tr>
+					<th width="25">CPU核数</th>
+					<th width="20">CPU型号</th>
+					<th width="80">物理CPU数</th>
+					<th width="50">线程数(逻辑CPU数)</th>
+				</tr>
+			</thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="formcpucore" value="" placeholder="CPU核数"  class="input-text"></td>
+                    <td><input type="text" name="formcpumodel" value="" placeholder="CPU型号" size="50" class="input-text"></td>
+                    <td><input type="text" name="formcpupyhsical" value="" placeholder="物理CPU数"  class="input-text"></td>
+                    <td><input type="text" name="formcpuprocess" value="" placeholder="线程数(逻辑CPU数)" class="input-text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-group">
+    <input class="btn btn-primary btn-lg btn-block" type="button" data-toggle="modal" data-target="#saveModal{{ id }}" value="提交"><label style="color:red;">{{ status }}</label>
+								<!-- 模态框（Modal） -->
+								<div class="modal fade" id="saveModal{{ id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+								            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								                  &times;
+								            </button>
+								            <h4 class="modal-title" id="myModalLabel">
+											 提示
+								            </h4>
+								         	</div>
+								         	<div class="modal-body">
+										 	提交信息？
+								         	</div>
+								         <div class="modal-footer">
+								            <button type="button" class="btn btn-default" data-dismiss="modal">
+											关闭
+								            </button>
+								            <input type='submit' value='确认' class="btn btn-primary" role="button"/>
+								         </div>
+								      </div><!-- /.modal-content -->
+									</div><!-- /.modal -->
+								</div>
+    
+    </div>
+    </form>
+</div>
+{% endblock %}

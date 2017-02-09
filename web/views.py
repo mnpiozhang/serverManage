@@ -188,10 +188,62 @@ def details(request,id):
 @is_login_auth
 def submit(request):
     ret = {'status':'','UserInfoObj':None}
+    UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
+    ret['UserInfoObj'] = UserInfoObj
     if request.method == 'POST':
-        pass
+        try:
+            formhostname = request.POST.get('formhostname',None)
+            formos = request.POST.get('formos',None)
+            formmachinetype = request.POST.get('formmachinetype',None)
+            formkernal = request.POST.get('formkernal',None)
+            formip = request.POST.getlist('formip[]',None)
+            #print formip
+            #print type(formip)
+            
+            #处理传进来的内存信息
+            formmemlstname = split_form_str(request.body)
+            #print formmemlstname
+            formmem = {}
+            for i in formmemlstname:
+                #有了数组名获取post来的数组
+                tmpmeminfo = request.POST.getlist(i+"[]",None)
+                print tmpmeminfo
+                formmem[formmemlstname[i]] = {
+                                              "msn":tmpmeminfo[0],
+                                              "type":tmpmeminfo[1],
+                                              "speed":tmpmeminfo[2],
+                                              "size":tmpmeminfo[3]
+                                              }
+            #print formmem
+            formhwsn = request.POST.get('formhwsn',None)
+            formhwproduct = request.POST.get('formhwproduct',None)
+            formhwuuid = request.POST.get('formhwuuid',None)
+            formhwmanu = request.POST.get('formhwmanu',None)
+            formcpucore = request.POST.get('formcpucore',None)
+            formcpumodel = request.POST.get('formcpumodel',None)
+            formcpupyhsical = request.POST.get('formcpupyhsical',None)
+            formcpuprocess = request.POST.get('formcpuprocess',None)
+            networkInfo = {"addrlst":formip}
+            hardwareInfo = {"SN":formhwsn,"Product":formhwproduct,"UUID":formhwuuid,"Manufacturer":formhwmanu}
+            cpuInfo = {"cpuCore":formcpucore,"cpuModel":formcpumodel,"cpuPhysical":formcpupyhsical,"cpuProcess":formcpuprocess}
+            HostObj(
+                    hostname = formhostname,
+                    os = formos,
+                    machineType = formmachinetype,
+                    kernal = formkernal,
+                    networkinfo = networkInfo,
+                    hardwareinfo = hardwareInfo,
+                    cpuinfo = cpuInfo,
+                    changetime = datetime.datetime.now,
+                    memoryinfo = formmem
+                    )
+            ret['status'] = '提交成功'
+        except Exception,e:
+            ret['status'] = '提交失败'
+            print e
+            #添加跨站请求伪造的认证
+            ret.update(csrf(request))
+            return render_to_response(request,'submit.html',ret)
     else:
-        ret['status'] = '提交成功'
-        UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
-        ret['UserInfoObj'] = UserInfoObj
+        #ret['status'] = '提交成功'
         return render_to_response('submit.html',ret)
