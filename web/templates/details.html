@@ -35,6 +35,17 @@
                     <td>内核版本</td>
                     <td><input type="text" name="formkernal" value="{{ HostObj.kernal }}" placeholder="主机名" style="width:250px" class="input-text"></td>
                 </tr>
+                <tr>
+                	<td>是否发布</td>
+                	<td>
+						<span class="select-box inline">
+						<select name="fompublish" class="select">
+							<option value="1" {% ifequal HostObj.ispublish "1" %}selected = "selected"{% endifequal %} >已发布</option>
+							<option value="0" {% ifequal HostObj.ispublish "0" %}selected = "selected"{% endifequal %} >已下架</option>
+						</select>
+						</span>
+                	</td>
+                </tr>
             </tbody>
         </table>
  

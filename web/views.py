@@ -41,7 +41,7 @@ def logout(request):
     del request.session['username']
     return redirect("/web/login/")
 
-
+#主页显示
 def index(request,page=1):
     ret = {'allServerObj':None,'UserInfoObj':None,'PageInfo':None,'AllCount':None}
     try:
@@ -125,6 +125,7 @@ def details(request,id):
             formos = request.POST.get('formos',None)
             formmachinetype = request.POST.get('formmachinetype',None)
             formkernal = request.POST.get('formkernal',None)
+            fompublish = request.POST.get('fompublish',None)
             formip = request.POST.getlist('formip[]',None)
             #print formip
             #print type(formip)
@@ -158,6 +159,7 @@ def details(request,id):
             HostObj.update(
                            hostname = formhostname,
                            os = formos,
+                           ispublish = fompublish,
                            machineType = formmachinetype,
                            kernal = formkernal,
                            networkinfo = networkInfo,
@@ -196,6 +198,7 @@ def submit(request):
             formos = request.POST.get('formos',None)
             formmachinetype = request.POST.get('formmachinetype',None)
             formkernal = request.POST.get('formkernal',None)
+            fompublish = request.POST.get('fompublish',None)
             formip = request.POST.getlist('formip[]',None)
             #print formip
             #print type(formip)
@@ -226,24 +229,53 @@ def submit(request):
             networkInfo = {"addrlst":formip}
             hardwareInfo = {"SN":formhwsn,"Product":formhwproduct,"UUID":formhwuuid,"Manufacturer":formhwmanu}
             cpuInfo = {"cpuCore":formcpucore,"cpuModel":formcpumodel,"cpuPhysical":formcpupyhsical,"cpuProcess":formcpuprocess}
-            HostObj(
-                    hostname = formhostname,
-                    os = formos,
-                    machineType = formmachinetype,
-                    kernal = formkernal,
-                    networkinfo = networkInfo,
-                    hardwareinfo = hardwareInfo,
-                    cpuinfo = cpuInfo,
-                    changetime = datetime.datetime.now,
-                    memoryinfo = formmem
-                    )
+            newhostsubmit = HostInfo(
+                                     hostname = formhostname,
+                                     os = formos,
+                                     ispublish = fompublish,
+                                     machineType = formmachinetype,
+                                     kernal = formkernal,
+                                     networkinfo = networkInfo,
+                                     hardwareinfo = hardwareInfo,
+                                     cpuinfo = cpuInfo,
+                                     changetime = datetime.datetime.now,
+                                     memoryinfo = formmem
+                                     )
+            newhostsubmit.save()
+            #print newhostsubmit.id
             ret['status'] = '提交成功'
+            ret['popover'] = { "id":newhostsubmit.id,"info":"已经添加主机" }
         except Exception,e:
             ret['status'] = '提交失败'
             print e
             #添加跨站请求伪造的认证
-            ret.update(csrf(request))
-            return render_to_response(request,'submit.html',ret)
+        ret.update(csrf(request))
+        return render_to_response('submit.html',ret,context_instance=RequestContext(request))
     else:
+        ret.update(csrf(request))
         #ret['status'] = '提交成功'
-        return render_to_response('submit.html',ret)
+        return render_to_response('submit.html',ret,context_instance=RequestContext(request))
+
+#删除主机信息
+@is_login_auth
+def delhost(request,id):
+    HostObj = HostInfo.objects.get(id=id)
+    HostObj.delete()
+    ret = {'allServerObj':None,'UserInfoObj':None,'PageInfo':None,'AllCount':None}
+    try:
+        page = int(page)
+    except Exception:
+        page = 1
+    allServer = HostInfo.objects.all()
+    AllCount = allServer.count()
+    ret['AllCount'] = AllCount
+    PageObj = Page(AllCount,page,2)
+    allServerObj = allServer[PageObj.begin:PageObj.end]
+    pageurl = 'index'
+    pageinfo = page_div(page, PageObj.all_page_count,pageurl)
+    ret['PageInfo'] = pageinfo
+    ret['allServerObj'] = allServerObj
+    UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
+    ret['UserInfoObj'] = UserInfoObj
+    ret['popover'] = { "id":id,"info":"已经删除主机" }
+    return render_to_response('index.html',ret,context_instance=RequestContext(request))

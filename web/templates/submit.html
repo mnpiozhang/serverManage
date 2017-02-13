@@ -32,6 +32,17 @@
                     <td>内核版本</td>
                     <td><input type="text" name="formkernal" value="" placeholder="内核版本" style="width:250px" class="input-text"></td>
                 </tr>
+                <tr>
+                	<td>是否发布</td>
+                	<td>
+						<span class="select-box inline">
+						<select name="fompublish" class="select">
+							<option value="1" >已发布</option>
+							<option value="0" >已下架</option>
+						</select>
+						</span>
+                	</td>
+                </tr>
             </tbody>
         </table>
  
@@ -205,4 +216,17 @@ function insertmemTr(){
     </div>
     </form>
 </div>
+
+{% if popover %}
+<div id="myPopover" class="alert alert-success">
+	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	<strong>成功！</strong>添加了主机{{ popover.id }}
+</div>
+<script type="text/javascript">
+$(document).ready(function(){ 
+	setTimeout(function(){alert("{{ popover.info }}{{ popover.id }}");},10);  
+}); 
+</script>  
+{% endif %}
+
 {% endblock %}
