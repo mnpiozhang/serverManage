@@ -7,7 +7,7 @@
 {% block content %}
 <nav class="breadcrumb">首页 <span class="c-gray en">&gt;</span>新主机资讯提交</nav>
 <div class="container">
-    <form action='/web/submit/' method='POST'>{% csrf_token %}
+    <form action='/web/submit/' id='submitform' method='POST'>{% csrf_token %}
     <div class="G_head_title">
         <table class="table table-striped table-bordered">
             <thead>
@@ -18,11 +18,18 @@
             <tbody>
                 <tr>
                     <td>主机名</td>
-                    <td><input type="text" name="formhostname" value="" placeholder="主机名" style="width:250px" class="input-text"></td>
+                    <td><input type="text" id="formhostname" name="formhostname" value="" placeholder="主机名" style="width:250px" class="input-text"></td>
                 </tr>
                 <tr>
                     <td>操作系统</td>
-                    <td><input type="text" name="formos" value="" placeholder="操作系统" style="width:250px" class="input-text"></td>
+                    <td>
+						<span class="select-box inline">
+						<select id="formos" name="formos" class="select">
+							<option value="centos" >centos</option>
+							<option value="Ubuntu" >Ubuntu</option>
+						</select>
+						</span>
+                   </td>
                 </tr>
                 <tr>
                     <td>服务器位数</td>
@@ -228,5 +235,26 @@ $(document).ready(function(){
 }); 
 </script>  
 {% endif %}
+
+<script>
+$().ready(function() {
+// 在键盘按下并释放及提交后验证提交表单
+	$("#submitform").validate({
+	    rules:{
+	    	formhostname: "required",
+	    	formos: "required"
+	    },
+	    messages:{
+	    	formhostname: "请输入主机名",
+	    	formos: "请选择操作系统类型"
+	    }
+	});
+});
+</script>
+<style>
+.error{
+	color:red;
+}
+</style>
 
 {% endblock %}
