@@ -86,7 +86,7 @@ def index(request,page=1):
                                          &Q(timestamp__lte=searchendtime))
             AllCount = allServer.count()
             ret['AllCount'] = AllCount
-            PageObj = Page(AllCount,page,2)
+            PageObj = Page(AllCount,page,6)
             allServerObj = allServer[PageObj.begin:PageObj.end]
             pageurl = 'index'
             querycondition = request.META.get("QUERY_STRING",None)
@@ -102,7 +102,7 @@ def index(request,page=1):
             allServer = HostInfo.objects.all()
             AllCount = allServer.count()
             ret['AllCount'] = AllCount
-            PageObj = Page(AllCount,page,2)
+            PageObj = Page(AllCount,page,6)
             allServerObj = allServer[PageObj.begin:PageObj.end]
             pageurl = 'index'
             pageinfo = page_div(page, PageObj.all_page_count,pageurl)
@@ -269,7 +269,7 @@ def delhost(request,id):
     allServer = HostInfo.objects.all()
     AllCount = allServer.count()
     ret['AllCount'] = AllCount
-    PageObj = Page(AllCount,page,2)
+    PageObj = Page(AllCount,page,6)
     allServerObj = allServer[PageObj.begin:PageObj.end]
     pageurl = 'index'
     pageinfo = page_div(page, PageObj.all_page_count,pageurl)
@@ -279,3 +279,63 @@ def delhost(request,id):
     ret['UserInfoObj'] = UserInfoObj
     ret['popover'] = { "id":id,"info":"已经删除主机" }
     return render_to_response('index.html',ret,context_instance=RequestContext(request))
+
+
+#主机信息图形展示
+@is_login_auth
+def infoshow(request):
+    if request.method == 'GET':
+        ret = {}
+        UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
+        ret['UserInfoObj'] = UserInfoObj
+        if request.GET.get("show",None) == "1":
+            mapfunc = """
+function() {
+     emit(this.os,1);
+}
+"""
+
+            reducefunc = """
+function reduce(key, values) {
+    return values.length;
+}
+"""
+
+            datadic = {}
+            for i in HostInfo.objects.map_reduce(mapfunc,reducefunc,'inline'):
+                datadic[i.key] = i.value
+            ret["result"] = "1"
+            ret["data"] = datadic
+            return render_to_response('infoshow.html',ret,context_instance=RequestContext(request))
+
+        elif request.GET.get("show",None) == "2":
+            #通过使用mongodb的mapreduce聚合计算数据
+            #这里emit里的1为伪赋值，目的是计算this.hardwareinfo.Manufacturer不同值的数量
+            mapfunc = """
+function() {
+     emit(this.hardwareinfo.Manufacturer,1);
+}
+"""
+
+            reducefunc = """
+function reduce(key, values) {
+    return values.length;
+}
+"""
+
+            datadic = {}
+            for i in HostInfo.objects.map_reduce(mapfunc,reducefunc,'inline'):
+                datadic[i.key] = i.value
+            ret["result"] = "2"
+            ret["data"] = datadic
+            return render_to_response('infoshow.html',ret,context_instance=RequestContext(request))
+        elif request.GET.get("show",None) == "3":
+            datadic = {}
+            datadic["已发布"] = HostInfo.objects(ispublish="1").count()
+            datadic["已下架"] = HostInfo.objects(ispublish="0").count()
+            ret["result"] = "3"
+            ret["data"] = datadic
+            return render_to_response('infoshow.html',ret,context_instance=RequestContext(request))
+            
+        else:
+            return render_to_response('infoshow.html',ret,context_instance=RequestContext(request))

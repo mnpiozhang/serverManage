@@ -5,7 +5,7 @@ import re
 import urllib
 
 class Page:
-    def __init__(self,AllCount,current_page,datanum=2):
+    def __init__(self,AllCount,current_page,datanum=3):
         '''
         AllCount 所有数据条数  int
         current_page 当前页  int 

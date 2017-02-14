@@ -1,0 +1,186 @@
+{% extends "suit/suit.html" %}
+{% block title %}主机信息展示{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb">首页 <span class="c-gray en">&gt;</span>主机信息展示 </nav>
+
+
+<div>
+
+<script src="/static/bootstrap/css/echarts.common.min.js"></script>
+
+<form action='/web/infoshow/' method='GET'>
+	<span class="select-box inline">
+	<select name="show" class="select">
+		<option value="1" >根据操作系统展示</option>
+		<option value="2" >根据厂商</option>
+		<option value="3" >是否在用</option>
+	</select>
+	</span>
+	<button class="btn btn-success" type="submit">展示</button>
+</form>
+<section>
+    <div id="tagstatistics" style="width: 1200px;height:400px;margin-top:50px;"></div>
+</section>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('tagstatistics'));
+
+    {% ifequal result "1" %}
+    
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '标签统计'
+        },
+        color: ['#3CB371'],
+        tooltip: {
+        	trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            data:['数量']
+        },
+        xAxis: {
+            data: [
+                   {% for k,v in data.items %}
+                   "{{ k }}",
+                   {% endfor %}
+                   //"衬衫",
+                   //"羊毛衫",
+                   //"雪纺衫",
+                   //"裤子",
+                   //"高跟鞋",
+                   //"袜子",
+                   ]
+        },
+        yAxis: {},
+        series: [{
+            name: '数量',
+            type: 'bar',
+            barWidth: '90%',
+            data: [
+                   {% for k,v in data.items %}
+                   {{ v }},
+                   {% endfor %}
+                   //5, 
+                   //20, 
+                   //36, 
+                   //10, 
+                   //10, 
+                   //20,
+                   ]
+        }]
+    };
+    {% endifequal %}
+	{% ifequal result "2" %}
+
+    var option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'left',
+            data:[
+                  {% for k,v in data.items %}
+                  '{{ k }}',
+                  {% endfor %}
+                  ]
+        },
+        series: [
+            {
+                name:'根据厂商',
+                type:'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data:[
+                      {% for k,v  in data.items %}
+                      {value:{{ v }}, name:'{{ k }}'},
+                      {% endfor %}
+                ]
+            }
+        ]
+    };
+	{% endifequal %}
+	{% ifequal result "3" %}
+
+    var option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'left',
+            data:[
+                  {% for k,v in data.items %}
+                  '{{ k }}',
+                  {% endfor %}
+                  ]
+        },
+        series: [
+            {
+                name:'是否发布',
+                type:'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data:[
+                      {% for k,v  in data.items %}
+                      {value:{{ v }}, name:'{{ k }}'},
+                      {% endfor %}
+                ]
+            }
+        ]
+    };
+	{% endifequal %}
+	
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+
+</div>
+
+{% endblock %}
+

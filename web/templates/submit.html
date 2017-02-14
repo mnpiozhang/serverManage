@@ -43,7 +43,7 @@
                 	<td>是否发布</td>
                 	<td>
 						<span class="select-box inline">
-						<select name="fompublish" class="select">
+						<select id="fompublish"  name="fompublish" class="select">
 							<option value="1" >已发布</option>
 							<option value="0" >已下架</option>
 						</select>
@@ -242,11 +242,13 @@ $().ready(function() {
 	$("#submitform").validate({
 	    rules:{
 	    	formhostname: "required",
-	    	formos: "required"
+	    	formos: "required",
+	    	fompublish: "required"
 	    },
 	    messages:{
 	    	formhostname: "请输入主机名",
-	    	formos: "请选择操作系统类型"
+	    	formos: "请选择操作系统类型",
+	    	fompublish: "请选择是否发布"
 	    }
 	});
 });
