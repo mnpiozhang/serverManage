@@ -158,10 +158,10 @@ function insertmemTr(){
 			</thead>
             <tbody>
                 <tr>
-                    <td><input type="text" name="formhwsn" value="" placeholder="序列号"  style="width:400px" class="input-text"></td>
-                    <td><input type="text" name="formhwproduct" value="" placeholder="产品名"  class="input-text"></td>
-                    <td><input type="text" name="formhwuuid" value="" placeholder="UUID" style="width:300px" class="input-text"></td>
-                    <td><input type="text" name="formhwmanu" value="" placeholder="制造商"  class="input-text"></td>
+                    <td><input type="text" id= "formhwsn" name="formhwsn" value="" placeholder="序列号"  style="width:400px" class="input-text"></td>
+                    <td><input type="text" id= "formhwproduct" name="formhwproduct" value="" placeholder="产品名"  class="input-text"></td>
+                    <td><input type="text" id= "formhwuuid" name="formhwuuid" value="" placeholder="UUID" style="width:300px" class="input-text"></td>
+                    <td><input type="text" id= "formhwmanu" name="formhwmanu" value="" placeholder="制造商"  class="input-text"></td>
                 </tr>
             </tbody>
         </table>
@@ -184,10 +184,10 @@ function insertmemTr(){
 			</thead>
             <tbody>
                 <tr>
-                    <td><input type="text" name="formcpucore" value="" placeholder="CPU核数"  class="input-text"></td>
-                    <td><input type="text" name="formcpumodel" value="" placeholder="CPU型号" size="50" class="input-text"></td>
-                    <td><input type="text" name="formcpupyhsical" value="" placeholder="物理CPU数"  class="input-text"></td>
-                    <td><input type="text" name="formcpuprocess" value="" placeholder="线程数(逻辑CPU数)" class="input-text"></td>
+                    <td><input type="text" id="formcpucore" name="formcpucore" value="" placeholder="CPU核数"  class="input-text"></td>
+                    <td><input type="text" id="formcpumodel" name="formcpumodel" value="" placeholder="CPU型号" size="50" class="input-text"></td>
+                    <td><input type="text" id="formcpupyhsical" name="formcpupyhsical" value="" placeholder="物理CPU数"  class="input-text"></td>
+                    <td><input type="text" id="formcpuprocess" name="formcpuprocess" value="" placeholder="线程数(逻辑CPU数)" class="input-text"></td>
                 </tr>
             </tbody>
         </table>
@@ -243,12 +243,39 @@ $().ready(function() {
 	    rules:{
 	    	formhostname: "required",
 	    	formos: "required",
-	    	fompublish: "required"
+	    	fompublish: "required",
+	    	formhwsn: "required",
+	    	formhwproduct: "required",
+	    	formhwuuid: "required",
+	    	formhwmanu: "required",
+    		formcpucore: {
+				required:true,
+				digits:true
+    		},
+    		formcpumodel: "required",
+    		formcpupyhsical: {
+				required:true,
+				digits:true
+    		},
+    		formcpuprocess: {
+				required:true,
+				digits:true
+    		}
+	    	
 	    },
 	    messages:{
 	    	formhostname: "请输入主机名",
 	    	formos: "请选择操作系统类型",
-	    	fompublish: "请选择是否发布"
+	    	fompublish: "请选择是否发布",
+	    	formhwsn: "请输入主机序列号",
+	    	formhwproduct: "请输入主机产品",
+	    	formhwuuid: "请输入主机uuid",
+	    	formhwmanu: "请输入主机制造商",
+	    	formcpucore: "请输入正确的内核数",
+	    	formcpumodel: "请输入cpu型号",
+	    	formcpupyhsical: "请输入正确的物理cpu数",
+	    	formcpuprocess: "请输入正确的逻辑cpu数"
+	    	
 	    }
 	});
 });
