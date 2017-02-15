@@ -200,7 +200,7 @@ def submit(request):
             formmachinetype = request.POST.get('formmachinetype',None)
             formkernal = request.POST.get('formkernal',None)
             fompublish = request.POST.get('fompublish',None)
-            formip = request.POST.getlist('formip[]',None)
+            formip = request.POST.getlist('formip[]',["127.0.0.1"])
             #print formip
             #print type(formip)
             
