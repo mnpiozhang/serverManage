@@ -280,6 +280,36 @@ def delhost(request,id):
     ret['popover'] = { "id":id,"info":"已经删除主机" }
     return render_to_response('index.html',ret,context_instance=RequestContext(request))
 
+#批量删除主机信息
+@is_login_auth
+def batchdelhost(request):
+    if request.method == 'POST':
+        #根据传进来的主机id批量删除数据库对象
+        tmpmeminfo = request.POST.getlist("checkboxdel[]",None)
+        for i in tmpmeminfo:
+            HostObj = HostInfo.objects.get(id=i)
+            HostObj.delete()
+        ids = ",".join(tmpmeminfo)
+        ret = {'allServerObj':None,'UserInfoObj':None,'PageInfo':None,'AllCount':None}
+        try:
+            page = int(page)
+        except Exception:
+            page = 1
+        allServer = HostInfo.objects.all()
+        AllCount = allServer.count()
+        ret['AllCount'] = AllCount
+        PageObj = Page(AllCount,page,6)
+        allServerObj = allServer[PageObj.begin:PageObj.end]
+        pageurl = 'index'
+        pageinfo = page_div(page, PageObj.all_page_count,pageurl)
+        ret['PageInfo'] = pageinfo
+        ret['allServerObj'] = allServerObj
+        UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
+        ret['UserInfoObj'] = UserInfoObj
+        ret['popover'] = { "id":ids,"info":"已经删除主机" }
+        return render_to_response('index.html',ret,context_instance=RequestContext(request))
+    else:
+        return HttpResponseNotFound('<h1>Page not found</h1>')
 
 #主机信息图形展示
 @is_login_auth

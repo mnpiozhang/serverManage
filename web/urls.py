@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from views import login,index,logout,details,submit,delhost,infoshow
+from views import login,index,logout,details,submit,delhost,batchdelhost,infoshow
 
 
 urlpatterns = [
@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^details/(?P<id>\w+)/$',details),
     url(r'^submit/',submit),
     url(r'^del/(?P<id>\w+)/$',delhost),
+    url(r'^batchdel/',batchdelhost),
     url(r'^infoshow/',infoshow)
 ]
