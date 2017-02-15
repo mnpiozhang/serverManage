@@ -42,6 +42,7 @@ def logout(request):
     return redirect("/web/login/")
 
 #主页显示
+@is_login_auth
 def index(request,page=1):
     ret = {'allServerObj':None,'UserInfoObj':None,'PageInfo':None,'AllCount':None}
     try:
@@ -285,12 +286,16 @@ def delhost(request,id):
 def batchdelhost(request):
     if request.method == 'POST':
         #根据传进来的主机id批量删除数据库对象
-        tmpmeminfo = request.POST.getlist("checkboxdel[]",None)
-        for i in tmpmeminfo:
-            HostObj = HostInfo.objects.get(id=i)
-            HostObj.delete()
-        ids = ",".join(tmpmeminfo)
         ret = {'allServerObj':None,'UserInfoObj':None,'PageInfo':None,'AllCount':None}
+        tmpmeminfo = request.POST.getlist("checkboxdel[]",None)
+        if tmpmeminfo:
+            for i in tmpmeminfo:
+                HostObj = HostInfo.objects.get(id=i)
+                HostObj.delete()
+            ids = ",".join(tmpmeminfo)
+            ret['popover'] = { "id":ids,"info":"已经删除主机" }
+        else:
+            ret['popover'] = { "id":"","info":"没有选中可删除的主机" }
         try:
             page = int(page)
         except Exception:
@@ -306,7 +311,6 @@ def batchdelhost(request):
         ret['allServerObj'] = allServerObj
         UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
         ret['UserInfoObj'] = UserInfoObj
-        ret['popover'] = { "id":ids,"info":"已经删除主机" }
         return render_to_response('index.html',ret,context_instance=RequestContext(request))
     else:
         return HttpResponseNotFound('<h1>Page not found</h1>')
@@ -319,6 +323,8 @@ def infoshow(request):
         UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
         ret['UserInfoObj'] = UserInfoObj
         if request.GET.get("show",None) == "1":
+            #通过使用mongodb的mapreduce聚合计算数据
+            #这里emit里的1为伪赋值，目的是计算this.hardwareinfo.Manufacturer不同值的数量
             mapfunc = """
 function() {
      emit(this.os,1);

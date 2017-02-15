@@ -137,7 +137,11 @@
 {% if popover %}
 <div id="myPopover" class="alert alert-warning">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	{% if popover.id %}
 	<strong>成功！</strong>删除了主机{{ popover.id }}
+	{% else %}
+	<strong>抱歉！</strong>{{ popover.info }}
+	{% endif %}
 </div>
 <script type="text/javascript">
 $(document).ready(function(){ 
