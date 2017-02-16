@@ -11,3 +11,4 @@
 * 采集数据可以使用项目最上层目录下的collectScript.py脚本。修改脚本中的url变量为具体的服务地址，然后通过saltstack或其他工具分发至节点服务器上执行，就能将节点服务器的基本信息采集到并调用本服务的接口导入数据。
 * 也支持手工输入提交服务器的基本信息，但暂时操作系统类型只提供centos和unbantu两种类型。
 * 通过MongoDB的MapReduce聚合计算数据来做图表展示，但目前只有基于发布状态、操作系统版本、生产厂商三类（以后再完善。。）
+* 可以使用Dockerfile快速构建运行环境，举例：在项目的最上层目录执行 docker build -t smimage . 构建docker镜像smimage，然后启动容器docker run --name smproj -v "$PWD":/usr/src/app -p 8001:8000 -d smimage创建容器名为smproj的该应用容器，然后直接访问http://XXX.XXX.XXX.XXX:8001/即可。
