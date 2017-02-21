@@ -21,3 +21,430 @@
 2017-02-21 14:52:27,397 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_usertype"."id", "web_usertype"."typename" FROM "web_usertype" WHERE "web_usertype"."id" = %s' - PARAMS = (1,); args=(1,)
 2017-02-21 14:52:27,398 - wsgi.py - INFO - 200 GET /web/details/58944c0fc58ecc1a94f26c09/ (127.0.0.1) 198.00ms
 2017-02-21 14:52:27,411 - wsgi.py - INFO - 200 GET /admin/jsi18n/ (127.0.0.1) 5.00ms
+2017-02-21 15:02:42,401 - wsgi.py - WARNING - 404 GET /static (127.0.0.1) 7.00ms
+2017-02-21 15:02:59,335 - wsgi.py - WARNING - 404 GET /web/static (127.0.0.1) 14.00ms
+2017-02-21 15:03:30,165 - wsgi.py - WARNING - 404 GET //static/jquery/jquery.min.js (127.0.0.1) 7.00ms
+2017-02-21 15:05:51,345 - web.py - INFO - 304 GET /static/jquery/jquery.min.map (127.0.0.1) 198.00ms
+2017-02-21 15:05:52,585 - utils.py - DEBUG - (0.003) QUERY = u'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = (u'ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:05:52.572000'); args=('ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:05:52.572000')
+2017-02-21 15:05:52,686 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_userinfo"."id", "web_userinfo"."username", "web_userinfo"."password", "web_userinfo"."type_id", "web_userinfo"."realname", "web_userinfo"."telphone" FROM "web_userinfo" WHERE "web_userinfo"."username" = %s' - PARAMS = (u'aaa',); args=(u'aaa',)
+2017-02-21 15:05:52,713 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_usertype"."id", "web_usertype"."typename" FROM "web_usertype" WHERE "web_usertype"."id" = %s' - PARAMS = (1,); args=(1,)
+2017-02-21 15:05:52,716 - wsgi.py - INFO - 200 GET /web/details/58944c0fc58ecc1a94f26c09/ (127.0.0.1) 317.00ms
+2017-02-21 15:05:52,792 - web.py - INFO - 304 GET /static/bootstrap/css/bootstrap.min.css (127.0.0.1) 26.00ms
+2017-02-21 15:05:52,796 - web.py - INFO - 304 GET /static/bootstrap/js/bootstrap.min.js (127.0.0.1) 2.00ms
+2017-02-21 15:05:52,806 - wsgi.py - INFO - 200 GET /admin/jsi18n/ (127.0.0.1) 9.00ms
+2017-02-21 15:05:52,809 - web.py - INFO - 304 GET /static/jquery/jquery.min.js (127.0.0.1) 1.00ms
+2017-02-21 15:05:52,811 - web.py - INFO - 304 GET /static/jquery/jquery.validate.min.js (127.0.0.1) 1.00ms
+2017-02-21 15:05:52,858 - web.py - INFO - 200 GET /static/admin/css/forms.css (127.0.0.1) 47.00ms
+2017-02-21 15:05:52,963 - web.py - INFO - 200 GET /static/admin/js/jquery.js (127.0.0.1) 105.00ms
+2017-02-21 15:05:52,973 - web.py - INFO - 200 GET /static/admin/js/jquery.init.js (127.0.0.1) 8.00ms
+2017-02-21 15:05:53,013 - web.py - INFO - 200 GET /static/admin/js/core.js (127.0.0.1) 39.00ms
+2017-02-21 15:05:53,032 - web.py - INFO - 200 GET /static/admin/css/widgets.css (127.0.0.1) 17.00ms
+2017-02-21 15:05:53,033 - web.py - INFO - 304 GET /static/bootstrap/js/DateTimeShortcuts.js (127.0.0.1) 1.00ms
+2017-02-21 15:05:53,075 - web.py - INFO - 200 GET /static/admin/js/admin/RelatedObjectLookups.js (127.0.0.1) 41.00ms
+2017-02-21 15:05:53,099 - web.py - INFO - 200 GET /static/admin/js/actions.js (127.0.0.1) 22.00ms
+2017-02-21 15:05:53,104 - web.py - INFO - 304 GET /static/bootstrap/js/calendar.js (127.0.0.1) 3.00ms
+2017-02-21 15:05:53,634 - utils.py - DEBUG - (0.001) QUERY = u'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = (u'ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:05:53.633000'); args=('ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:05:53.633000')
+2017-02-21 15:05:53,638 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_userinfo"."id", "web_userinfo"."username", "web_userinfo"."password", "web_userinfo"."type_id", "web_userinfo"."realname", "web_userinfo"."telphone" FROM "web_userinfo" WHERE "web_userinfo"."username" = %s' - PARAMS = (u'aaa',); args=(u'aaa',)
+2017-02-21 15:05:53,651 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_usertype"."id", "web_usertype"."typename" FROM "web_usertype" WHERE "web_usertype"."id" = %s' - PARAMS = (1,); args=(1,)
+2017-02-21 15:05:53,651 - wsgi.py - INFO - 200 GET /web/index/ (127.0.0.1) 20.00ms
+2017-02-21 15:05:53,668 - wsgi.py - INFO - 200 GET /admin/jsi18n/ (127.0.0.1) 5.00ms
+2017-02-21 15:06:56,897 - utils.py - DEBUG - (0.001) QUERY = u'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = (u'ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:06:56.894000'); args=('ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:06:56.894000')
+2017-02-21 15:06:56,903 - utils.py - DEBUG - (0.001) QUERY = u'SELECT "web_userinfo"."id", "web_userinfo"."username", "web_userinfo"."password", "web_userinfo"."type_id", "web_userinfo"."realname", "web_userinfo"."telphone" FROM "web_userinfo" WHERE "web_userinfo"."username" = %s' - PARAMS = (u'aaa',); args=(u'aaa',)
+2017-02-21 15:06:56,918 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_usertype"."id", "web_usertype"."typename" FROM "web_usertype" WHERE "web_usertype"."id" = %s' - PARAMS = (1,); args=(1,)
+2017-02-21 15:06:56,920 - wsgi.py - INFO - 200 GET /web/index/ (127.0.0.1) 48.00ms
+2017-02-21 15:06:57,092 - web.py - INFO - 304 GET /static/bootstrap/css/bootstrap.min.css (127.0.0.1) 160.00ms
+2017-02-21 15:06:57,094 - web.py - INFO - 304 GET /static/jquery/jquery.validate.min.js (127.0.0.1) 1.00ms
+2017-02-21 15:06:57,096 - web.py - INFO - 304 GET /static/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.00ms
+2017-02-21 15:06:57,098 - web.py - INFO - 304 GET /static/admin/css/forms.css (127.0.0.1) 1.00ms
+2017-02-21 15:06:57,125 - wsgi.py - INFO - 200 GET /admin/jsi18n/ (127.0.0.1) 25.00ms
+2017-02-21 15:06:57,128 - web.py - INFO - 304 GET /static/admin/js/jquery.js (127.0.0.1) 2.00ms
+2017-02-21 15:06:57,131 - web.py - INFO - 304 GET /static/admin/js/jquery.init.js (127.0.0.1) 2.00ms
+2017-02-21 15:06:57,132 - web.py - INFO - 304 GET /static/admin/js/admin/RelatedObjectLookups.js (127.0.0.1) 1.00ms
+2017-02-21 15:06:57,134 - web.py - INFO - 304 GET /static/admin/js/actions.js (127.0.0.1) 1.00ms
+2017-02-21 15:06:57,138 - web.py - INFO - 304 GET /static/jquery/jquery.min.js (127.0.0.1) 2.00ms
+2017-02-21 15:06:57,141 - web.py - INFO - 304 GET /static/admin/js/core.js (127.0.0.1) 1.00ms
+2017-02-21 15:06:57,142 - web.py - INFO - 304 GET /static/bootstrap/js/calendar.js (127.0.0.1) 1.00ms
+2017-02-21 15:06:57,144 - web.py - INFO - 304 GET /static/bootstrap/js/DateTimeShortcuts.js (127.0.0.1) 1.00ms
+2017-02-21 15:06:57,184 - web.py - INFO - 304 GET /static/admin/css/widgets.css (127.0.0.1) 1.00ms
+2017-02-21 15:06:57,260 - web.py - INFO - 200 GET /static/admin/img/icon_calendar.gif (127.0.0.1) 2.00ms
+2017-02-21 15:07:00,171 - utils.py - DEBUG - (0.002) QUERY = u'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = (u'ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:07:00.168000'); args=('ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:07:00.168000')
+2017-02-21 15:07:00,174 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_userinfo"."id", "web_userinfo"."username", "web_userinfo"."password", "web_userinfo"."type_id", "web_userinfo"."realname", "web_userinfo"."telphone" FROM "web_userinfo" WHERE "web_userinfo"."username" = %s' - PARAMS = (u'aaa',); args=(u'aaa',)
+2017-02-21 15:07:00,187 - utils.py - DEBUG - (0.001) QUERY = u'SELECT "web_usertype"."id", "web_usertype"."typename" FROM "web_usertype" WHERE "web_usertype"."id" = %s' - PARAMS = (1,); args=(1,)
+2017-02-21 15:07:00,187 - wsgi.py - INFO - 200 GET /web/index/ (127.0.0.1) 21.00ms
+2017-02-21 15:07:00,203 - wsgi.py - INFO - 200 GET /admin/jsi18n/ (127.0.0.1) 7.00ms
+2017-02-21 15:07:00,730 - utils.py - DEBUG - (0.001) QUERY = u'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = (u'ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:07:00.728000'); args=('ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:07:00.728000')
+2017-02-21 15:07:00,733 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_userinfo"."id", "web_userinfo"."username", "web_userinfo"."password", "web_userinfo"."type_id", "web_userinfo"."realname", "web_userinfo"."telphone" FROM "web_userinfo" WHERE "web_userinfo"."username" = %s' - PARAMS = (u'aaa',); args=(u'aaa',)
+2017-02-21 15:07:00,832 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_usertype"."id", "web_usertype"."typename" FROM "web_usertype" WHERE "web_usertype"."id" = %s' - PARAMS = (1,); args=(1,)
+2017-02-21 15:07:00,835 - wsgi.py - INFO - 200 GET /web/infoshow/ (127.0.0.1) 108.00ms
+2017-02-21 15:07:00,861 - wsgi.py - INFO - 200 GET /admin/jsi18n/ (127.0.0.1) 9.00ms
+2017-02-21 15:07:01,846 - utils.py - DEBUG - (0.001) QUERY = u'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = (u'ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:07:01.844000'); args=('ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:07:01.844000')
+2017-02-21 15:07:01,848 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_userinfo"."id", "web_userinfo"."username", "web_userinfo"."password", "web_userinfo"."type_id", "web_userinfo"."realname", "web_userinfo"."telphone" FROM "web_userinfo" WHERE "web_userinfo"."username" = %s' - PARAMS = (u'aaa',); args=(u'aaa',)
+2017-02-21 15:07:02,566 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_usertype"."id", "web_usertype"."typename" FROM "web_usertype" WHERE "web_usertype"."id" = %s' - PARAMS = (1,); args=(1,)
+2017-02-21 15:07:02,571 - wsgi.py - INFO - 200 GET /web/infoshow/?show=1 (127.0.0.1) 728.00ms
+2017-02-21 15:07:02,598 - wsgi.py - INFO - 200 GET /admin/jsi18n/ (127.0.0.1) 11.00ms
+2017-02-21 15:07:30,464 - web.py - WARNING - 400 GET /ws/terminal (127.0.0.1) 0.00ms
+2017-02-21 15:07:30,466 - websocket.py - DEBUG - Can "Upgrade" only to "WebSocket".
+2017-02-21 15:07:37,664 - web.py - WARNING - 400 GET /ws/terminal (127.0.0.1) 1.00ms
+2017-02-21 15:07:37,664 - websocket.py - DEBUG - Can "Upgrade" only to "WebSocket".
+2017-02-21 15:25:40,062 - wsgi.py - INFO - 200 GET / (127.0.0.1) 197.00ms
+2017-02-21 15:25:40,148 - wsgi.py - WARNING - 404 GET /favicon.ico (127.0.0.1) 6.00ms
+2017-02-21 15:25:52,101 - utils.py - DEBUG - (0.001) QUERY = u'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = (u'ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:25:52.096000'); args=('ncvctq5wayeulbxw99lddqlae04vdr8q', u'2017-02-21 07:25:52.096000')
+2017-02-21 15:25:52,112 - utils.py - DEBUG - (0.001) QUERY = u'SELECT "web_userinfo"."id", "web_userinfo"."username", "web_userinfo"."password", "web_userinfo"."type_id", "web_userinfo"."realname", "web_userinfo"."telphone" FROM "web_userinfo" WHERE "web_userinfo"."username" = %s' - PARAMS = (u'aaa',); args=(u'aaa',)
+2017-02-21 15:25:52,256 - utils.py - DEBUG - (0.000) QUERY = u'SELECT "web_usertype"."id", "web_usertype"."typename" FROM "web_usertype" WHERE "web_usertype"."id" = %s' - PARAMS = (1,); args=(1,)
+2017-02-21 15:25:52,257 - wsgi.py - INFO - 200 GET /web/index/ (127.0.0.1) 162.00ms
+2017-02-21 15:25:52,260 - wsgi.py - INFO - 200 POST /web/login/ (127.0.0.1) 3.00ms
+2017-02-21 15:25:55,157 - wsgi.py - INFO - 301 GET /web/terminal (127.0.0.1) 2.00ms
+2017-02-21 15:25:55,164 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 3.00ms
+2017-02-21 15:25:55,316 - web.py - INFO - 200 GET /static/xterm/xterm.css (127.0.0.1) 147.00ms
+2017-02-21 15:25:55,323 - web.py - INFO - 200 GET /static/xterm/xterm.js (127.0.0.1) 5.00ms
+2017-02-21 15:25:55,354 - websocket.py - ERROR - Uncaught exception in /ws/terminal
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\tornado\websocket.py", line 412, in _run_callback
+    callback(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 58, in _deco
+    request_started.send_robust(func)
+NameError: global name 'request_started' is not defined
+2017-02-21 15:25:55,355 - run.py - DEBUG - Websocket: Close request
+2017-02-21 15:25:55,355 - web.py - ERROR - Uncaught exception GET /ws/terminal (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/ws/terminal', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8000', 'Upgrade': 'websocket', 'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Sec-Websocket-Version': '13', 'Host': '127.0.0.1:8000', 'Sec-Websocket-Key': 'V/CcSR52ZZRoA0PoDYJ1ZQ==', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'Upgrade', 'Cookie': 'Huiskin=green; Hm_lvt_080836300300be57b7f34f4b3e97d911=1482396017; CNZZDATA1255435139=825178316-1480902804-%7C1482730969; sessionid=ncvctq5wayeulbxw99lddqlae04vdr8q; csrftoken=EBhrQXOyl3UnnYkhgSFQGgIHaKf503n5', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Sec-Websocket-Extensions': 'permessage-deflate; client_max_window_bits'})
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\tornado\web.py", line 1425, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "C:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\tornado\websocket.py", line 364, in on_connection_close
+    self.on_close()
+  File "C:\Users\lenovo\git\serverManage\run.py", line 310, in on_close
+    print self.termlog.CMD
+AttributeError: 'WebTerminalHandler' object has no attribute 'termlog'
+2017-02-21 15:34:15,674 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 45.00ms
+2017-02-21 15:34:16,130 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 156.00ms
+2017-02-21 15:34:16,131 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 1.00ms
+2017-02-21 15:34:16,161 - websocket.py - ERROR - Uncaught exception in /ws/terminal
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\tornado\websocket.py", line 412, in _run_callback
+    callback(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 58, in _deco
+    request_started.send_robust(func)
+NameError: global name 'request_started' is not defined
+2017-02-21 15:34:16,163 - run.py - DEBUG - Websocket: Close request
+2017-02-21 15:34:16,164 - web.py - ERROR - Uncaught exception GET /ws/terminal (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/ws/terminal', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8000', 'Upgrade': 'websocket', 'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Sec-Websocket-Version': '13', 'Host': '127.0.0.1:8000', 'Sec-Websocket-Key': 'uOIrgInjc3+tRY7qPWUj9w==', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'Upgrade', 'Cookie': 'Huiskin=green; Hm_lvt_080836300300be57b7f34f4b3e97d911=1482396017; CNZZDATA1255435139=825178316-1480902804-%7C1482730969; sessionid=ncvctq5wayeulbxw99lddqlae04vdr8q; csrftoken=EBhrQXOyl3UnnYkhgSFQGgIHaKf503n5', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Sec-Websocket-Extensions': 'permessage-deflate; client_max_window_bits'})
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\tornado\web.py", line 1425, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File "C:\Python27\lib\site-packages\tornado\stack_context.py", line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\tornado\websocket.py", line 364, in on_connection_close
+    self.on_close()
+  File "C:\Users\lenovo\git\serverManage\run.py", line 306, in on_close
+    print self.termlog.CMD
+AttributeError: 'WebTerminalHandler' object has no attribute 'termlog'
+2017-02-21 15:40:06,115 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 27.00ms
+2017-02-21 15:40:06,276 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 151.00ms
+2017-02-21 15:40:06,278 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 2.00ms
+2017-02-21 15:40:06,299 - websocket.py - ERROR - Uncaught exception in /ws/terminal
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\tornado\websocket.py", line 412, in _run_callback
+    callback(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 58, in _deco
+    request_started.send_robust(func)
+NameError: global name 'request_started' is not defined
+2017-02-21 15:40:06,302 - run.py - DEBUG - Websocket: Close request
+2017-02-21 15:42:19,556 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 28.00ms
+2017-02-21 15:42:19,707 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 141.00ms
+2017-02-21 15:42:19,709 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 1.00ms
+2017-02-21 15:42:19,720 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:42:19,720 - run.py - WARNING - Websocket: No that Host: 
+2017-02-21 15:42:19,720 - run.py - DEBUG - Websocket: Close request
+2017-02-21 15:44:03,200 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 25.00ms
+2017-02-21 15:44:03,355 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 146.00ms
+2017-02-21 15:44:03,358 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 1.00ms
+2017-02-21 15:44:03,367 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:44:03,367 - run.py - DEBUG - Websocket: request web terminal Host:
+2017-02-21 15:44:03,368 - websocket.py - ERROR - Uncaught exception in /ws/terminal
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\tornado\websocket.py", line 412, in _run_callback
+    callback(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 60, in _deco
+    response = func(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 258, in open
+    self.term = WebTty('hu', asset, 'hu', login_type='web')
+  File "C:\Users\lenovo\git\serverManage\run.py", line 208, in __init__
+    super(WebTty, self).__init__(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 89, in __init__
+    self.__init_screen_stream()
+  File "C:\Users\lenovo\git\serverManage\run.py", line 95, in __init_screen_stream
+    self.stream = pyte.ByteStream()
+NameError: global name 'pyte' is not defined
+2017-02-21 15:44:03,369 - run.py - DEBUG - Websocket: Close request
+2017-02-21 15:45:33,747 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 22.00ms
+2017-02-21 15:45:33,894 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 137.00ms
+2017-02-21 15:45:33,897 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 1.00ms
+2017-02-21 15:45:33,921 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:45:33,921 - run.py - DEBUG - Websocket: request web terminal Host:
+2017-02-21 15:45:33,934 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:45:33,934 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:45:33,937 - transport.py - DEBUG - starting thread (client mode): 0x6283860L
+2017-02-21 15:45:33,937 - transport.py - DEBUG - Local version/idstring: SSH-2.0-paramiko_1.17.3
+2017-02-21 15:45:33,992 - transport.py - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_6.6.1
+2017-02-21 15:45:33,993 - transport.py - INFO - Connected (version 2.0, client OpenSSH_6.6.1)
+2017-02-21 15:45:34,029 - transport.py - DEBUG - kex algos:[u'curve25519-sha256@libssh.org', u'ecdh-sha2-nistp256', u'ecdh-sha2-nistp384', u'ecdh-sha2-nistp521', u'diffie-hellman-group-exchange-sha256', u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa', u'ecdsa-sha2-nistp256', u'ssh-ed25519'] client encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] server encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] client mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] server mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] client compress:[u'none', u'zlib@openssh.com'] server compress:[u'none', u'zlib@openssh.com'] client lang:[u''] server lang:[u''] kex follows?False
+2017-02-21 15:45:34,029 - transport.py - DEBUG - Kex agreed: diffie-hellman-group1-sha1
+2017-02-21 15:45:34,029 - transport.py - DEBUG - Cipher agreed: aes128-ctr
+2017-02-21 15:45:34,029 - transport.py - DEBUG - MAC agreed: hmac-sha2-256
+2017-02-21 15:45:34,029 - transport.py - DEBUG - Compression agreed: none
+2017-02-21 15:45:34,063 - transport.py - DEBUG - kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2017-02-21 15:45:34,098 - transport.py - DEBUG - Switch to new keys ...
+2017-02-21 15:45:34,114 - transport.py - DEBUG - Adding ssh-rsa host key for 192.168.188.129: 044210be081bb1b6b4670483172c989d
+2017-02-21 15:45:34,114 - websocket.py - ERROR - Uncaught exception in /ws/terminal
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\tornado\websocket.py", line 412, in _run_callback
+    callback(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 61, in _deco
+    response = func(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 265, in open
+    self.ssh = self.term.get_connection()
+  File "C:\Users\lenovo\git\serverManage\run.py", line 201, in get_connection
+    except socket.error:
+NameError: global name 'socket' is not defined
+2017-02-21 15:45:34,197 - transport.py - DEBUG - EOF in transport thread
+2017-02-21 15:45:34,230 - run.py - DEBUG - Websocket: Close request
+2017-02-21 15:47:05,263 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 23.00ms
+2017-02-21 15:47:05,414 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 142.00ms
+2017-02-21 15:47:05,417 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 1.00ms
+2017-02-21 15:47:05,443 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:47:05,443 - run.py - DEBUG - Websocket: request web terminal Host:
+2017-02-21 15:47:05,444 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:47:05,444 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:47:05,450 - transport.py - DEBUG - starting thread (client mode): 0x584c898L
+2017-02-21 15:47:05,450 - transport.py - DEBUG - Local version/idstring: SSH-2.0-paramiko_1.17.3
+2017-02-21 15:47:05,460 - transport.py - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_6.6.1
+2017-02-21 15:47:05,460 - transport.py - INFO - Connected (version 2.0, client OpenSSH_6.6.1)
+2017-02-21 15:47:05,483 - transport.py - DEBUG - kex algos:[u'curve25519-sha256@libssh.org', u'ecdh-sha2-nistp256', u'ecdh-sha2-nistp384', u'ecdh-sha2-nistp521', u'diffie-hellman-group-exchange-sha256', u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa', u'ecdsa-sha2-nistp256', u'ssh-ed25519'] client encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] server encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] client mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] server mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] client compress:[u'none', u'zlib@openssh.com'] server compress:[u'none', u'zlib@openssh.com'] client lang:[u''] server lang:[u''] kex follows?False
+2017-02-21 15:47:05,483 - transport.py - DEBUG - Kex agreed: diffie-hellman-group1-sha1
+2017-02-21 15:47:05,484 - transport.py - DEBUG - Cipher agreed: aes128-ctr
+2017-02-21 15:47:05,484 - transport.py - DEBUG - MAC agreed: hmac-sha2-256
+2017-02-21 15:47:05,484 - transport.py - DEBUG - Compression agreed: none
+2017-02-21 15:47:05,503 - transport.py - DEBUG - kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2017-02-21 15:47:05,503 - transport.py - DEBUG - Switch to new keys ...
+2017-02-21 15:47:05,530 - transport.py - DEBUG - Adding ssh-rsa host key for 192.168.188.129: 044210be081bb1b6b4670483172c989d
+2017-02-21 15:47:05,532 - websocket.py - ERROR - Uncaught exception in /ws/terminal
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\tornado\websocket.py", line 412, in _run_callback
+    callback(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 61, in _deco
+    response = func(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 265, in open
+    self.ssh = self.term.get_connection()
+  File "C:\Users\lenovo\git\serverManage\run.py", line 186, in get_connection
+    look_for_keys=False)
+  File "build\bdist.win-amd64\egg\paramiko\client.py", line 380, in connect
+    look_for_keys, gss_auth, gss_kex, gss_deleg_creds, gss_host)
+  File "build\bdist.win-amd64\egg\paramiko\client.py", line 524, in _auth
+    key = pkey_class.from_private_key_file(key_filename, password)
+  File "build\bdist.win-amd64\egg\paramiko\pkey.py", line 184, in from_private_key_file
+    key = cls(filename=filename, password=password)
+  File "build\bdist.win-amd64\egg\paramiko\rsakey.py", line 55, in __init__
+    self._from_private_key_file(filename, password)
+  File "build\bdist.win-amd64\egg\paramiko\rsakey.py", line 165, in _from_private_key_file
+    data = self._read_private_key_file('RSA', filename, password)
+  File "build\bdist.win-amd64\egg\paramiko\pkey.py", line 255, in _read_private_key_file
+    with open(filename, 'r') as f:
+IOError: [Errno 2] No such file or directory: '1234567'
+2017-02-21 15:47:05,605 - transport.py - DEBUG - EOF in transport thread
+2017-02-21 15:47:05,651 - run.py - DEBUG - Websocket: Close request
+2017-02-21 15:48:33,868 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 20.00ms
+2017-02-21 15:48:34,019 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 140.00ms
+2017-02-21 15:48:34,022 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 1.00ms
+2017-02-21 15:48:34,029 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:48:34,032 - run.py - DEBUG - Websocket: request web terminal Host:
+2017-02-21 15:48:34,033 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:48:34,035 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:48:34,036 - transport.py - DEBUG - starting thread (client mode): 0x57775c0L
+2017-02-21 15:48:34,036 - transport.py - DEBUG - Local version/idstring: SSH-2.0-paramiko_1.17.3
+2017-02-21 15:48:34,052 - transport.py - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_6.6.1
+2017-02-21 15:48:34,052 - transport.py - INFO - Connected (version 2.0, client OpenSSH_6.6.1)
+2017-02-21 15:48:34,062 - transport.py - DEBUG - kex algos:[u'curve25519-sha256@libssh.org', u'ecdh-sha2-nistp256', u'ecdh-sha2-nistp384', u'ecdh-sha2-nistp521', u'diffie-hellman-group-exchange-sha256', u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa', u'ecdsa-sha2-nistp256', u'ssh-ed25519'] client encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] server encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] client mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] server mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] client compress:[u'none', u'zlib@openssh.com'] server compress:[u'none', u'zlib@openssh.com'] client lang:[u''] server lang:[u''] kex follows?False
+2017-02-21 15:48:34,062 - transport.py - DEBUG - Kex agreed: diffie-hellman-group1-sha1
+2017-02-21 15:48:34,062 - transport.py - DEBUG - Cipher agreed: aes128-ctr
+2017-02-21 15:48:34,062 - transport.py - DEBUG - MAC agreed: hmac-sha2-256
+2017-02-21 15:48:34,063 - transport.py - DEBUG - Compression agreed: none
+2017-02-21 15:48:34,085 - transport.py - DEBUG - kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2017-02-21 15:48:34,085 - transport.py - DEBUG - Switch to new keys ...
+2017-02-21 15:48:34,104 - transport.py - DEBUG - Adding ssh-rsa host key for 192.168.188.129: 044210be081bb1b6b4670483172c989d
+2017-02-21 15:48:34,125 - transport.py - DEBUG - userauth is OK
+2017-02-21 15:48:34,257 - transport.py - INFO - Authentication (password) successful!
+2017-02-21 15:48:34,296 - channel.py - DEBUG - [chan 0] Max packet in: 32768 bytes
+2017-02-21 15:48:34,431 - channel.py - DEBUG - [chan 0] Max packet out: 32768 bytes
+2017-02-21 15:48:34,431 - transport.py - DEBUG - Secsh channel 0 opened.
+2017-02-21 15:48:34,474 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:48:34,484 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:48:34,486 - websocket.py - ERROR - Uncaught exception in /ws/terminal
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\tornado\websocket.py", line 412, in _run_callback
+    callback(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 61, in _deco
+    response = func(*args, **kwargs)
+  File "C:\Users\lenovo\git\serverManage\run.py", line 268, in open
+    WebTerminalHandler.tasks.append(MyThread(target=self.forward_outbound))
+NameError: global name 'MyThread' is not defined
+2017-02-21 15:48:34,493 - run.py - DEBUG - Websocket: Close request
+2017-02-21 15:53:09,757 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 23.00ms
+2017-02-21 15:53:09,907 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 140.00ms
+2017-02-21 15:53:09,910 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 1.00ms
+2017-02-21 15:53:09,917 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:53:09,917 - run.py - DEBUG - Websocket: request web terminal Host:
+2017-02-21 15:53:09,918 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:53:09,920 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:53:09,921 - transport.py - DEBUG - starting thread (client mode): 0x6099a20L
+2017-02-21 15:53:09,921 - transport.py - DEBUG - Local version/idstring: SSH-2.0-paramiko_1.17.3
+2017-02-21 15:53:09,937 - transport.py - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_6.6.1
+2017-02-21 15:53:09,937 - transport.py - INFO - Connected (version 2.0, client OpenSSH_6.6.1)
+2017-02-21 15:53:09,943 - transport.py - DEBUG - kex algos:[u'curve25519-sha256@libssh.org', u'ecdh-sha2-nistp256', u'ecdh-sha2-nistp384', u'ecdh-sha2-nistp521', u'diffie-hellman-group-exchange-sha256', u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa', u'ecdsa-sha2-nistp256', u'ssh-ed25519'] client encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] server encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] client mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] server mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] client compress:[u'none', u'zlib@openssh.com'] server compress:[u'none', u'zlib@openssh.com'] client lang:[u''] server lang:[u''] kex follows?False
+2017-02-21 15:53:09,943 - transport.py - DEBUG - Kex agreed: diffie-hellman-group1-sha1
+2017-02-21 15:53:09,943 - transport.py - DEBUG - Cipher agreed: aes128-ctr
+2017-02-21 15:53:09,944 - transport.py - DEBUG - MAC agreed: hmac-sha2-256
+2017-02-21 15:53:09,944 - transport.py - DEBUG - Compression agreed: none
+2017-02-21 15:53:09,980 - transport.py - DEBUG - kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2017-02-21 15:53:09,980 - transport.py - DEBUG - Switch to new keys ...
+2017-02-21 15:53:09,986 - transport.py - DEBUG - Adding ssh-rsa host key for 192.168.188.129: 044210be081bb1b6b4670483172c989d
+2017-02-21 15:53:10,022 - transport.py - DEBUG - userauth is OK
+2017-02-21 15:53:10,062 - transport.py - INFO - Authentication (password) successful!
+2017-02-21 15:53:10,085 - channel.py - DEBUG - [chan 0] Max packet in: 32768 bytes
+2017-02-21 15:53:10,207 - channel.py - DEBUG - [chan 0] Max packet out: 32768 bytes
+2017-02-21 15:53:10,207 - transport.py - DEBUG - Secsh channel 0 opened.
+2017-02-21 15:53:10,221 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:53:10,224 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:54:26,377 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 28.00ms
+2017-02-21 15:54:26,529 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 142.00ms
+2017-02-21 15:54:26,530 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 1.00ms
+2017-02-21 15:54:26,556 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:54:26,558 - run.py - DEBUG - Websocket: request web terminal Host:
+2017-02-21 15:54:26,559 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:54:26,559 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:54:26,562 - transport.py - DEBUG - starting thread (client mode): 0x5e5b6d8L
+2017-02-21 15:54:26,562 - transport.py - DEBUG - Local version/idstring: SSH-2.0-paramiko_1.17.3
+2017-02-21 15:54:26,575 - transport.py - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_6.6.1
+2017-02-21 15:54:26,575 - transport.py - INFO - Connected (version 2.0, client OpenSSH_6.6.1)
+2017-02-21 15:54:26,578 - transport.py - DEBUG - kex algos:[u'curve25519-sha256@libssh.org', u'ecdh-sha2-nistp256', u'ecdh-sha2-nistp384', u'ecdh-sha2-nistp521', u'diffie-hellman-group-exchange-sha256', u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa', u'ecdsa-sha2-nistp256', u'ssh-ed25519'] client encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] server encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] client mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] server mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] client compress:[u'none', u'zlib@openssh.com'] server compress:[u'none', u'zlib@openssh.com'] client lang:[u''] server lang:[u''] kex follows?False
+2017-02-21 15:54:26,579 - transport.py - DEBUG - Kex agreed: diffie-hellman-group1-sha1
+2017-02-21 15:54:26,579 - transport.py - DEBUG - Cipher agreed: aes128-ctr
+2017-02-21 15:54:26,579 - transport.py - DEBUG - MAC agreed: hmac-sha2-256
+2017-02-21 15:54:26,579 - transport.py - DEBUG - Compression agreed: none
+2017-02-21 15:54:26,601 - transport.py - DEBUG - kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2017-02-21 15:54:26,605 - transport.py - DEBUG - Switch to new keys ...
+2017-02-21 15:54:26,648 - transport.py - DEBUG - Adding ssh-rsa host key for 192.168.188.129: 044210be081bb1b6b4670483172c989d
+2017-02-21 15:54:26,650 - transport.py - DEBUG - userauth is OK
+2017-02-21 15:54:26,671 - transport.py - INFO - Authentication (password) successful!
+2017-02-21 15:54:26,680 - channel.py - DEBUG - [chan 0] Max packet in: 32768 bytes
+2017-02-21 15:54:26,778 - channel.py - DEBUG - [chan 0] Max packet out: 32768 bytes
+2017-02-21 15:54:26,778 - transport.py - DEBUG - Secsh channel 0 opened.
+2017-02-21 15:54:26,782 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:54:26,786 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:56:40,822 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 24.00ms
+2017-02-21 15:56:40,973 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 139.00ms
+2017-02-21 15:56:40,977 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 2.00ms
+2017-02-21 15:56:41,000 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:56:41,000 - run.py - DEBUG - Websocket: request web terminal Host:
+2017-02-21 15:56:41,002 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:56:41,002 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:56:41,003 - transport.py - DEBUG - starting thread (client mode): 0x5d90a90L
+2017-02-21 15:56:41,003 - transport.py - DEBUG - Local version/idstring: SSH-2.0-paramiko_1.17.3
+2017-02-21 15:56:41,017 - transport.py - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_6.6.1
+2017-02-21 15:56:41,019 - transport.py - INFO - Connected (version 2.0, client OpenSSH_6.6.1)
+2017-02-21 15:56:41,023 - transport.py - DEBUG - kex algos:[u'curve25519-sha256@libssh.org', u'ecdh-sha2-nistp256', u'ecdh-sha2-nistp384', u'ecdh-sha2-nistp521', u'diffie-hellman-group-exchange-sha256', u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa', u'ecdsa-sha2-nistp256', u'ssh-ed25519'] client encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] server encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] client mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] server mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] client compress:[u'none', u'zlib@openssh.com'] server compress:[u'none', u'zlib@openssh.com'] client lang:[u''] server lang:[u''] kex follows?False
+2017-02-21 15:56:41,023 - transport.py - DEBUG - Kex agreed: diffie-hellman-group1-sha1
+2017-02-21 15:56:41,023 - transport.py - DEBUG - Cipher agreed: aes128-ctr
+2017-02-21 15:56:41,023 - transport.py - DEBUG - MAC agreed: hmac-sha2-256
+2017-02-21 15:56:41,023 - transport.py - DEBUG - Compression agreed: none
+2017-02-21 15:56:41,071 - transport.py - DEBUG - kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2017-02-21 15:56:41,071 - transport.py - DEBUG - Switch to new keys ...
+2017-02-21 15:56:41,104 - transport.py - DEBUG - Adding ssh-rsa host key for 192.168.188.129: 044210be081bb1b6b4670483172c989d
+2017-02-21 15:56:41,112 - transport.py - DEBUG - userauth is OK
+2017-02-21 15:56:41,135 - transport.py - INFO - Authentication (password) successful!
+2017-02-21 15:56:41,138 - channel.py - DEBUG - [chan 0] Max packet in: 32768 bytes
+2017-02-21 15:56:41,243 - channel.py - DEBUG - [chan 0] Max packet out: 32768 bytes
+2017-02-21 15:56:41,243 - transport.py - DEBUG - Secsh channel 0 opened.
+2017-02-21 15:56:41,249 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:56:41,250 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:57:01,351 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 24.00ms
+2017-02-21 15:57:01,500 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 141.00ms
+2017-02-21 15:57:01,503 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 1.00ms
+2017-02-21 15:57:01,510 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:57:01,510 - run.py - DEBUG - Websocket: request web terminal Host:
+2017-02-21 15:57:01,512 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:57:01,513 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:57:01,515 - transport.py - DEBUG - starting thread (client mode): 0x5b40a90L
+2017-02-21 15:57:01,515 - transport.py - DEBUG - Local version/idstring: SSH-2.0-paramiko_1.17.3
+2017-02-21 15:57:01,530 - transport.py - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_6.6.1
+2017-02-21 15:57:01,530 - transport.py - INFO - Connected (version 2.0, client OpenSSH_6.6.1)
+2017-02-21 15:57:01,538 - transport.py - DEBUG - kex algos:[u'curve25519-sha256@libssh.org', u'ecdh-sha2-nistp256', u'ecdh-sha2-nistp384', u'ecdh-sha2-nistp521', u'diffie-hellman-group-exchange-sha256', u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa', u'ecdsa-sha2-nistp256', u'ssh-ed25519'] client encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] server encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] client mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] server mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] client compress:[u'none', u'zlib@openssh.com'] server compress:[u'none', u'zlib@openssh.com'] client lang:[u''] server lang:[u''] kex follows?False
+2017-02-21 15:57:01,539 - transport.py - DEBUG - Kex agreed: diffie-hellman-group1-sha1
+2017-02-21 15:57:01,540 - transport.py - DEBUG - Cipher agreed: aes128-ctr
+2017-02-21 15:57:01,540 - transport.py - DEBUG - MAC agreed: hmac-sha2-256
+2017-02-21 15:57:01,540 - transport.py - DEBUG - Compression agreed: none
+2017-02-21 15:57:01,576 - transport.py - DEBUG - kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2017-02-21 15:57:01,578 - transport.py - DEBUG - Switch to new keys ...
+2017-02-21 15:57:01,578 - transport.py - DEBUG - Adding ssh-rsa host key for 192.168.188.129: 044210be081bb1b6b4670483172c989d
+2017-02-21 15:57:01,618 - transport.py - DEBUG - userauth is OK
+2017-02-21 15:57:01,757 - transport.py - INFO - Authentication (password) successful!
+2017-02-21 15:57:01,779 - channel.py - DEBUG - [chan 0] Max packet in: 32768 bytes
+2017-02-21 15:57:01,895 - channel.py - DEBUG - [chan 0] Max packet out: 32768 bytes
+2017-02-21 15:57:01,895 - transport.py - DEBUG - Secsh channel 0 opened.
+2017-02-21 15:57:01,900 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:57:01,901 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:57:20,421 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 21.00ms
+2017-02-21 15:57:20,569 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 139.00ms
+2017-02-21 15:57:20,572 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 2.00ms
+2017-02-21 15:57:20,601 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:57:20,601 - run.py - DEBUG - Websocket: request web terminal Host:
+2017-02-21 15:57:20,602 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:57:20,604 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:57:20,608 - transport.py - DEBUG - starting thread (client mode): 0x582d7b8L
+2017-02-21 15:57:20,608 - transport.py - DEBUG - Local version/idstring: SSH-2.0-paramiko_1.17.3
+2017-02-21 15:57:20,618 - transport.py - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_6.6.1
+2017-02-21 15:57:20,618 - transport.py - INFO - Connected (version 2.0, client OpenSSH_6.6.1)
+2017-02-21 15:57:20,621 - transport.py - DEBUG - kex algos:[u'curve25519-sha256@libssh.org', u'ecdh-sha2-nistp256', u'ecdh-sha2-nistp384', u'ecdh-sha2-nistp521', u'diffie-hellman-group-exchange-sha256', u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa', u'ecdsa-sha2-nistp256', u'ssh-ed25519'] client encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] server encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] client mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] server mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] client compress:[u'none', u'zlib@openssh.com'] server compress:[u'none', u'zlib@openssh.com'] client lang:[u''] server lang:[u''] kex follows?False
+2017-02-21 15:57:20,621 - transport.py - DEBUG - Kex agreed: diffie-hellman-group1-sha1
+2017-02-21 15:57:20,621 - transport.py - DEBUG - Cipher agreed: aes128-ctr
+2017-02-21 15:57:20,621 - transport.py - DEBUG - MAC agreed: hmac-sha2-256
+2017-02-21 15:57:20,622 - transport.py - DEBUG - Compression agreed: none
+2017-02-21 15:57:20,650 - transport.py - DEBUG - kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2017-02-21 15:57:20,650 - transport.py - DEBUG - Switch to new keys ...
+2017-02-21 15:57:20,677 - transport.py - DEBUG - Adding ssh-rsa host key for 192.168.188.129: 044210be081bb1b6b4670483172c989d
+2017-02-21 15:57:20,707 - transport.py - DEBUG - userauth is OK
+2017-02-21 15:57:20,727 - transport.py - INFO - Authentication (password) successful!
+2017-02-21 15:57:20,755 - channel.py - DEBUG - [chan 0] Max packet in: 32768 bytes
+2017-02-21 15:57:20,829 - channel.py - DEBUG - [chan 0] Max packet out: 32768 bytes
+2017-02-21 15:57:20,829 - transport.py - DEBUG - Secsh channel 0 opened.
+2017-02-21 15:57:20,858 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:57:20,858 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:57:42,153 - wsgi.py - INFO - 200 GET /web/terminal/ (127.0.0.1) 3.00ms
+2017-02-21 15:57:42,161 - run.py - DEBUG - Websocket: Close request
+2017-02-21 15:57:42,253 - transport.py - DEBUG - EOF in transport thread
+2017-02-21 15:57:42,282 - web.py - INFO - 304 GET /static/xterm/xterm.js (127.0.0.1) 3.00ms
+2017-02-21 15:57:42,290 - web.py - INFO - 304 GET /static/xterm/xterm.css (127.0.0.1) 6.00ms
+2017-02-21 15:57:42,336 - run.py - DEBUG - Websocket: Open request
+2017-02-21 15:57:42,336 - run.py - DEBUG - Websocket: request web terminal Host:
+2017-02-21 15:57:42,336 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:57:42,338 - run.py - DEBUG - {'ip': '192.168.188.129', 'role_name': 'hu', 'role_key': '1234567', 'user': 'hu', 'role_pass': 'mnpiozhang', 'port': 22, 'asset': []}
+2017-02-21 15:57:42,341 - transport.py - DEBUG - starting thread (client mode): 0x587b080L
+2017-02-21 15:57:42,341 - transport.py - DEBUG - Local version/idstring: SSH-2.0-paramiko_1.17.3
+2017-02-21 15:57:42,351 - transport.py - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_6.6.1
+2017-02-21 15:57:42,351 - transport.py - INFO - Connected (version 2.0, client OpenSSH_6.6.1)
+2017-02-21 15:57:42,357 - transport.py - DEBUG - kex algos:[u'curve25519-sha256@libssh.org', u'ecdh-sha2-nistp256', u'ecdh-sha2-nistp384', u'ecdh-sha2-nistp521', u'diffie-hellman-group-exchange-sha256', u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa', u'ecdsa-sha2-nistp256', u'ssh-ed25519'] client encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] server encrypt:[u'aes128-ctr', u'aes192-ctr', u'aes256-ctr', u'arcfour256', u'arcfour128', u'aes128-gcm@openssh.com', u'aes256-gcm@openssh.com', u'chacha20-poly1305@openssh.com', u'aes128-cbc', u'3des-cbc', u'blowfish-cbc', u'cast128-cbc', u'aes192-cbc', u'aes256-cbc', u'arcfour', u'rijndael-cbc@lysator.liu.se'] client mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] server mac:[u'hmac-md5-etm@openssh.com', u'hmac-sha1-etm@openssh.com', u'umac-64-etm@openssh.com', u'umac-128-etm@openssh.com', u'hmac-sha2-256-etm@openssh.com', u'hmac-sha2-512-etm@openssh.com', u'hmac-ripemd160-etm@openssh.com', u'hmac-sha1-96-etm@openssh.com', u'hmac-md5-96-etm@openssh.com', u'hmac-md5', u'hmac-sha1', u'umac-64@openssh.com', u'umac-128@openssh.com', u'hmac-sha2-256', u'hmac-sha2-512', u'hmac-ripemd160', u'hmac-ripemd160@openssh.com', u'hmac-sha1-96', u'hmac-md5-96'] client compress:[u'none', u'zlib@openssh.com'] server compress:[u'none', u'zlib@openssh.com'] client lang:[u''] server lang:[u''] kex follows?False
+2017-02-21 15:57:42,357 - transport.py - DEBUG - Kex agreed: diffie-hellman-group1-sha1
+2017-02-21 15:57:42,357 - transport.py - DEBUG - Cipher agreed: aes128-ctr
+2017-02-21 15:57:42,357 - transport.py - DEBUG - MAC agreed: hmac-sha2-256
+2017-02-21 15:57:42,358 - transport.py - DEBUG - Compression agreed: none
+2017-02-21 15:57:42,377 - transport.py - DEBUG - kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2017-02-21 15:57:42,377 - transport.py - DEBUG - Switch to new keys ...
+2017-02-21 15:57:42,407 - transport.py - DEBUG - Adding ssh-rsa host key for 192.168.188.129: 044210be081bb1b6b4670483172c989d
+2017-02-21 15:57:42,417 - transport.py - DEBUG - userauth is OK
+2017-02-21 15:57:42,434 - transport.py - INFO - Authentication (password) successful!
+2017-02-21 15:57:42,440 - channel.py - DEBUG - [chan 0] Max packet in: 32768 bytes
+2017-02-21 15:57:42,540 - channel.py - DEBUG - [chan 0] Max packet out: 32768 bytes
+2017-02-21 15:57:42,540 - transport.py - DEBUG - Secsh channel 0 opened.
+2017-02-21 15:57:42,545 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok
+2017-02-21 15:57:42,546 - channel.py - DEBUG - [chan 0] Sesch channel 0 request ok

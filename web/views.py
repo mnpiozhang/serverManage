@@ -375,3 +375,8 @@ function reduce(key, values) {
             
         else:
             return render_to_response('infoshow.html',ret,context_instance=RequestContext(request))
+        
+        
+def web_terminal(request):
+    hostname = '192.168.188.129'
+    return render_to_response('ws.html', locals())
