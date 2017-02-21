@@ -364,25 +364,28 @@ class WebTerminalHandler(tornado.websocket.WebSocketHandler):
 
 
 ##############################
+from tornado.options import options, define
+define('port', type=int, default=8000)
 def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "serverManage.settings")
     wsgi_app  = get_wsgi_application()
     container = tornado.wsgi.WSGIContainer(wsgi_app)
     setting = {
         'cookie_secret': 'DFksdfsasdfkasdfFKwlwfsdfsa1204mx',
-        'template_path': os.path.join(os.path.dirname(__file__),'..','web','templates'),
-        'static_path': os.path.join(os.path.dirname(__file__),'..','web','static'),
+        'template_path': os.path.join(os.path.dirname(__file__),'web','templates'),
+        'static_path': os.path.join(os.path.dirname(__file__),'web','static'),
         'debug': False,
     }
     tornado_app = tornado.web.Application(
         [
             (r'/ws/terminal', WebTerminalHandler),
-            (r"/static/(.*)", tornado.web.StaticFileHandler,dict(path=os.path.join(os.path.dirname(__file__),'..','web',"static"))),
+            (r"/static/(.*)", tornado.web.StaticFileHandler,dict(path=os.path.join(os.path.dirname(__file__),'web',"static"))),
             ('.*', tornado.web.FallbackHandler, dict(fallback=container)),
         ], **setting)
     server = tornado.httpserver.HTTPServer(tornado_app)
+    server.listen(options.port, address='0.0.0.0')
     tornado.ioloop.IOLoop.instance().start()
-    server.listen(8000, address='0.0.0.0')
+    
 
 if __name__ == '__main__':
     main()

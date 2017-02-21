@@ -370,14 +370,14 @@ def main():
     container = tornado.wsgi.WSGIContainer(wsgi_app)
     setting = {
         'cookie_secret': 'DFksdfsasdfkasdfFKwlwfsdfsa1204mx',
-        'template_path': os.path.join(os.path.dirname(__file__),'..','web','templates'),
-        'static_path': os.path.join(os.path.dirname(__file__),'..','web','static'),
+        'template_path': os.path.join(os.path.dirname(__file__),'web','templates'),
+        'static_path': os.path.join(os.path.dirname(__file__),'web','static'),
         'debug': False,
     }
     tornado_app = tornado.web.Application(
         [
             (r'/ws/terminal', WebTerminalHandler),
-            (r"/static/(.*)", tornado.web.StaticFileHandler,dict(path=os.path.join(os.path.dirname(__file__),'..','web',"static"))),
+            (r"/static/(.*)", tornado.web.StaticFileHandler,dict(path=os.path.join(os.path.dirname(__file__),'web',"static"))),
             ('.*', tornado.web.FallbackHandler, dict(fallback=container)),
         ], **setting)
     server = tornado.httpserver.HTTPServer(tornado_app)
