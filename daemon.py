@@ -47,8 +47,9 @@ class Bridge(object):
     def establish(self, term="xterm"):
         self._shell = self.ssh.invoke_shell(term)
         self._shell.setblocking(0)
-
+        
         self._id = self._shell.fileno()
+        print self._id
         IOLoop.instance().register(self)
         IOLoop.instance().add_future(self.trans_back())
 

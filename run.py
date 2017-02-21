@@ -16,7 +16,6 @@ import os
 from django.core.wsgi import get_wsgi_application
 import re
 from django.core.signals import request_started, request_finished
-import pyte
 import socket
 import threading
 import time
@@ -31,8 +30,8 @@ import tornado.gen
 import tornado.httpclient
 from tornado.options import define, options
 import tornado.wsgi
-from tornado.websocket import WebSocketClosedError
 from wth import WebTerminalHandler
+from ioloop import IOLoop
 
 def django_request_support(func):
     @functools.wraps(func)
@@ -59,6 +58,7 @@ def main():
         ])
     server = tornado.httpserver.HTTPServer(tornado_app)
     server.listen(options.port, address='0.0.0.0')
+    IOLoop.instance().start()
     tornado.ioloop.IOLoop.instance().start()
     
 
