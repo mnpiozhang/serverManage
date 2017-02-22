@@ -13,6 +13,6 @@ ENV DJANGO_VERSION 1.8.14
 WORKDIR /usr/src/app
 EXPOSE 8000
 
-RUN pip install mysqlclient psycopg2 django=="$DJANGO_VERSION"  mongoengine=="0.11.0"
+RUN pip install mysqlclient psycopg2 django=="$DJANGO_VERSION"  mongoengine=="0.11.0" paramiko=="1.17.3" tornado=="4.4.2"
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "run.py"]
