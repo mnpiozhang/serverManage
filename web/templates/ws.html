@@ -1,21 +1,22 @@
-<!doctype html>
-<html>
-  <head>
-    <link rel="stylesheet" href="/static/xterm/xterm.css" />
-  </head>
-<body>
+{% extends "suit/suit.html" %}
+{% block title %}主机信息展示{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb">首页 <span class="c-gray en">&gt;</span>webshell</nav>
+<link rel="stylesheet" type="text/css" href="/static/xterm/xterm.css" />
 <div>
-  	<button type="button" class="pure-button pure-button-primary" onclick="connect()">Connect</button>
+<div>
+  	<button type="button" class="btn btn-success" onclick="connect()">Connect</button>
 </div>
 <div id="term" align="center"></div>
-<script src="http://cdn.bootcss.com/jquery/2.1.2/jquery.min.js"></script>
-<script src="http://apps.bdimg.com/libs/term.js/0.0.2/term.js"></script>
-<!-- <script src="/static/xterm/xterm.js"></script> -->
+<!-- <script src="http://cdn.bootcss.com/jquery/2.1.2/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/term.js/0.0.2/term.js"></script> -->
+<script src="/static/xterm/xterm.js"></script>
 <script src="/static/xterm/ws.js"></script>
 <script type="application/javascript">
 function connect() {
     var options = {
-        host: "192.168.247.128",
+        host: "192.168.188.129",
         port: "22",
         username: "hu",
         password: "mnpiozhang"
@@ -54,5 +55,5 @@ function openTerminal(options) {
     })
 }
 </script>
-</body>
-</html>
+</div>
+{% endblock %}

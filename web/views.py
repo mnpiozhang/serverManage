@@ -376,7 +376,10 @@ function reduce(key, values) {
         else:
             return render_to_response('infoshow.html',ret,context_instance=RequestContext(request))
         
-        
+
+#webssh webshell功能
+@is_login_auth
 def web_terminal(request):
-    hostname = '192.168.188.129'
+    UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
+    print locals()
     return render_to_response('ws.html', locals())

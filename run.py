@@ -11,27 +11,17 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 
 
 import functools
-import logging
 import os
 from django.core.wsgi import get_wsgi_application
-import re
 from django.core.signals import request_started, request_finished
-import socket
-import threading
-import time
-import select
 
 import tornado.ioloop
-import tornado.options
 import tornado.web
-import tornado.websocket
 import tornado.httpserver
-import tornado.gen
-import tornado.httpclient
 from tornado.options import define, options
 import tornado.wsgi
-from wth import WebTerminalHandler
-from ioloop import IOLoop
+from webssh.wth import WebTerminalHandler
+from webssh.ioloop import IOLoop
 
 def django_request_support(func):
     @functools.wraps(func)
@@ -44,7 +34,7 @@ def django_request_support(func):
     return _deco
 
 ##############################
-from tornado.options import options, define
+
 define('port', type=int, default=8000)
 def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "serverManage.settings")

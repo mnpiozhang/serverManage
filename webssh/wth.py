@@ -1,3 +1,5 @@
+__author__ = 'xsank'
+
 import logging
 
 import tornado.web
@@ -31,7 +33,7 @@ class WebTerminalHandler(tornado.websocket.WebSocketHandler):
 
     @staticmethod
     def _is_init_data(data):
-        print data.get_type()
+        #print data.get_type()
         return data.get_type() == 'init'
 
     def _id(self):
@@ -48,7 +50,7 @@ class WebTerminalHandler(tornado.websocket.WebSocketHandler):
         if self._is_init_data(client_data):
             if self._check_init_param(client_data.data):
                 bridge.open(client_data.data)
-                print 'connection established from: %s' % self._id()
+                #print 'connection established from: %s' % self._id()
                 logging.info('connection established from: %s' % self._id())
             else:
                 self.remove_client()

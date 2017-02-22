@@ -1,3 +1,5 @@
+__author__ = 'xsank'
+
 import select
 import socket
 import errno

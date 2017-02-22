@@ -1,3 +1,5 @@
+__author__ = 'xsank'
+
 import re
 import sys
 

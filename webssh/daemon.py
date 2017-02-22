@@ -1,3 +1,5 @@
+__author__ = 'xsank'
+
 import paramiko
 from paramiko.ssh_exception import AuthenticationException, SSHException
 from tornado.websocket import WebSocketClosedError
