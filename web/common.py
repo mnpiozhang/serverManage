@@ -45,7 +45,7 @@ def page_div(page,all_page_count,pageurl):
     #分页逻辑判断，html标签的列表
     pagelist.append("<a class='pure-button' href='/web/%s/1'>首页</a>" %pageurl)
     if page == 1:
-        pagelist.append("<a class='pure-button prev' href=''>上一页</a>")
+        pagelist.append("<a class='pure-button prev' href='#'>上一页</a>")
     else:
         pagelist.append("<a  class='pure-button prev' href='/web/%s/%d'>上一页</a>" %(pageurl,(page-1)))
     
@@ -73,7 +73,7 @@ def page_div(page,all_page_count,pageurl):
             
 
     if page == all_page_count:
-        pagelist.append("<a class='pure-button next' href=''>下一页</a>")
+        pagelist.append("<a class='pure-button next' href='#'>下一页</a>")
     else:
         pagelist.append("<a class='pure-button next' href='/web/%s/%d'>下一页</a>" %(pageurl,(page+1)))
     pagelist.append("<a class='pure-button' href='/web/%s/%d'>尾页</a>" %(pageurl,all_page_count))
@@ -93,7 +93,7 @@ def query_page_div(page,all_page_count,pageurl,querycondition):
     #分页逻辑判断，html标签的列表
     pagelist.append("<a class='pure-button' href='/web/%s/1?%s'>首页</a>" %(pageurl,querycondition))
     if page == 1:
-        pagelist.append("<a class='pure-button prev' href=''>上一页</a>")
+        pagelist.append("<a class='pure-button prev' href='#'>上一页</a>")
     else:
         pagelist.append("<a  class='pure-button prev' href='/web/%s/%d?%s'>上一页</a>" %(pageurl,(page-1),querycondition))
     
@@ -121,7 +121,7 @@ def query_page_div(page,all_page_count,pageurl,querycondition):
             
 
     if page == all_page_count:
-        pagelist.append("<a class='pure-button next' href=''>下一页</a>")
+        pagelist.append("<a class='pure-button next' href='#'>下一页</a>")
     else:
         pagelist.append("<a class='pure-button next' href='/web/%s/%d?%s'>下一页</a>" %(pageurl,(page+1),querycondition))
     pagelist.append("<a class='pure-button' href='/web/%s/%d?%s'>尾页</a>" %(pageurl,all_page_count,querycondition))

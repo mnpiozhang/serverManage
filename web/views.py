@@ -271,10 +271,7 @@ def delhost(request,id):
     HostObj = HostInfo.objects.get(id=id)
     HostObj.delete()
     ret = {'allServerObj':None,'UserInfoObj':None,'PageInfo':None,'AllCount':None}
-    try:
-        page = int(page)
-    except Exception:
-        page = 1
+    page = 1
     allServer = HostInfo.objects.all()
     AllCount = allServer.count()
     ret['AllCount'] = AllCount
@@ -304,10 +301,7 @@ def batchdelhost(request):
             ret['popover'] = { "id":ids,"info":"已经删除主机" }
         else:
             ret['popover'] = { "id":"","info":"没有选中可删除的主机" }
-        try:
-            page = int(page)
-        except Exception:
-            page = 1
+        page = 1
         allServer = HostInfo.objects.all()
         AllCount = allServer.count()
         ret['AllCount'] = AllCount
