@@ -19,6 +19,6 @@
 大致的样子
 ===========
 
-![index](https://github.com/mnpiozhang/serverManage/blob/master/example/index.jpg){: style="max-width:100%"}
-![index](https://github.com/mnpiozhang/serverManage/blob/master/example/accordingos.jpg){: style="max-width:100%"}
-![index](https://github.com/mnpiozhang/serverManage/blob/master/example/webssh.jpg){: style="max-width:100%"}
+![index](https://github.com/mnpiozhang/serverManage/blob/master/example/index.jpg)
+![index](https://github.com/mnpiozhang/serverManage/blob/master/example/accordingos.jpg)
+![index](https://github.com/mnpiozhang/serverManage/blob/master/example/webssh.jpg)
