@@ -130,7 +130,11 @@ def details(request,id):
             formip = request.POST.getlist('formip[]',None)
             #print formip
             #print type(formip)
-            
+            #ssh登陆信息
+            formaddressssh = request.POST.get('formaddressssh',None)
+            formportssh = request.POST.get('formportssh',None)
+            formusernamessh = request.POST.get('formusernamessh',None)
+            formpasswordssh = request.POST.get('formpasswordssh',None)
             #处理传进来的内存信息
             formmemlstname = split_form_str(request.body)
             #print formmemlstname
@@ -167,7 +171,11 @@ def details(request,id):
                            hardwareinfo = hardwareInfo,
                            cpuinfo = cpuInfo,
                            changetime = datetime.datetime.now,
-                           memoryinfo = formmem
+                           memoryinfo = formmem,
+                           usernamessh = formusernamessh,
+                           passwordssh = formpasswordssh,
+                           addressssh = formaddressssh,
+                           portssh = formportssh
                            )
             ret['status'] = '修改成功'
             HostObj = HostInfo.objects.get(id=id)

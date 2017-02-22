@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="container">
-    <form action='/web/details/{{ id }}/' method='POST'>{% csrf_token %}
+    <form action='/web/details/{{ id }}/' id='edithost' method='POST'>{% csrf_token %}
     <div class="G_head_title">
         <table class="table table-striped table-bordered">
             <thead>
@@ -50,6 +50,44 @@
         </table>
  
     </div>
+    
+    
+    
+    
+    
+    <div class="G_head_verify">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2" style="text-align:center">ssh登陆信息(非必填)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ssh登陆地址</td>
+                    <td><input type="text" name="formaddressssh" id="formaddressssh" value="{{ HostObj.addressssh }}" placeholder="ssh登陆地址" style="width:250px" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>ssh登陆端口</td>
+                    <td><input type="text" name="formportssh" id="formportssh" value="{{ HostObj.portssh }}" placeholder="ssh登陆端口" style="width:250px" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>ssh登陆用户名</td>
+                    <td><input type="text" name="formusernamessh" id="formusernamessh" value="{{ HostObj.usernamessh }}" placeholder="ssh登陆用户名" style="width:250px" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>ssh登陆密码</td>
+                    <td><input type="text" name="formpasswordssh" id="formpasswordssh" value="{{ HostObj.passwordssh }}" placeholder="ssh登陆密码" style="width:250px" class="input-text"></td>
+                </tr>
+            </tbody>
+        </table>
+ 
+    </div>
+    
+    
+    
+    
+    
         <div class="G_head_verify">
             <table class="table table-striped table-bordered" >
 
