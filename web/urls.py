@@ -29,5 +29,5 @@ urlpatterns = [
     url(r'^del/(?P<id>\w+)/$',delhost),
     url(r'^batchdel/',batchdelhost),
     url(r'^infoshow/',infoshow),
-    url(r'^terminal/$', web_terminal),
+    url(r'^terminal/(?P<id>\w+)/$', web_terminal),
 ]

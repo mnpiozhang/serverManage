@@ -3,7 +3,7 @@
 from django.shortcuts import redirect,HttpResponse,render_to_response
 from django.views.decorators.csrf import csrf_exempt
 from models import UserInfo,HostInfo
-from decorators import is_login_auth
+from decorators import is_login_auth,is_admin_auth
 from django.template.context import RequestContext
 from django.template.context_processors import csrf
 from mongoengine.queryset.visitor import Q
@@ -381,7 +381,12 @@ function reduce(key, values) {
 
 #webssh webshell功能
 @is_login_auth
-def web_terminal(request):
+@is_admin_auth
+def web_terminal(request,id):
     UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
-    print locals()
-    return render_to_response('ws.html', locals())
+    HostInfoObj = HostInfo.objects.get(id=id)
+    if all([HostInfoObj.usernamessh,HostInfoObj.passwordssh,HostInfoObj.addressssh,HostInfoObj.portssh]):
+        print locals()
+        return render_to_response('ws.html', locals())
+    else:
+        return HttpResponse("ssh information of this host is not configured , you can not link remote host")

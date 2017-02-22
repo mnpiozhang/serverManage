@@ -1,12 +1,12 @@
 {% extends "suit/suit.html" %}
-{% block title %}主机信息展示{% endblock %}
+{% block title %}远程连接主机{% endblock %}
 
 {% block content %}
 <nav class="breadcrumb">首页 <span class="c-gray en">&gt;</span>webshell</nav>
 <link rel="stylesheet" type="text/css" href="/static/xterm/xterm.css" />
 <div>
 <div>
-  	<button type="button" class="btn btn-success" onclick="connect()">Connect</button>
+  	<button type="button" class="btn btn-success" onclick="connect()">Connect {{ HostInfoObj.hostname }}</button>
 </div>
 <div id="term" align="center"></div>
 <!-- <script src="http://cdn.bootcss.com/jquery/2.1.2/jquery.min.js"></script>
@@ -16,10 +16,10 @@
 <script type="application/javascript">
 function connect() {
     var options = {
-        host: "192.168.188.129",
-        port: "22",
-        username: "hu",
-        password: "mnpiozhang"
+        host: "{{ HostInfoObj.addressssh }}",
+        port: "{{ HostInfoObj.portssh }}",
+        username: "{{ HostInfoObj.usernamessh }}",
+        password: "{{ HostInfoObj.passwordssh }}"
     }
     console.log(options)
     openTerminal(options)
