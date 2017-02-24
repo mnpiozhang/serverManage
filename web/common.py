@@ -130,7 +130,7 @@ def query_page_div(page,all_page_count,pageurl,querycondition):
 
 
 #将传来的post信息做解析，分割过滤后就剩插槽名和js数组名
-def split_form_str(str):
+def split_formmem_str(str):
     tmpdic = {}
     #transtr = urllib.unquote(str.encode("utf8"))
     transtr = str.encode("utf8")
@@ -141,5 +141,21 @@ def split_form_str(str):
         k = urllib.unquote_plus(kv[0].encode("utf-8"))
         v = urllib.unquote_plus(kv[1].encode("utf-8"))
         if re.match('formmem\d+$',k):
+            tmpdic[k] = v
+    return tmpdic
+
+
+#将传来的磁盘post信息做解析，分割过滤后就剩分区、设备、容量
+def split_formdisk_str(str):
+    tmpdic = {}
+    #transtr = urllib.unquote(str.encode("utf8"))
+    transtr = str.encode("utf8")
+    for i in transtr.split("&"):
+        kv = i.split("=")
+        #print kv
+        #对url字符串解码
+        k = urllib.unquote_plus(kv[0].encode("utf-8"))
+        v = urllib.unquote_plus(kv[1].encode("utf-8"))
+        if re.match('formdisk\d+$',k):
             tmpdic[k] = v
     return tmpdic

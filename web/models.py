@@ -18,6 +18,7 @@ class HostInfo(Document):
     memoryinfo = DictField()
     hardwareinfo = DictField()
     cpuinfo = DictField()
+    diskinfo = DictField()
     usernamessh = StringField(max_length=50,verbose_name = u'服务器登陆名')
     passwordssh = StringField(max_length=50,verbose_name = u'服务器登陆密码')
     addressssh = StringField(max_length=20,verbose_name = u'服务器登陆地址')

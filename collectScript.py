@@ -8,6 +8,7 @@ import socket
 import urllib2
 import json
 import re
+import psutil
 
 #collect server INFO
 
@@ -112,14 +113,52 @@ def getMemInfo():
             memInfo[memdic['Locator']]['speed'] = memdic['Speed']
     return memInfo
 
-#print getMemInfo()
+#抄来的http://code.activestate.com/recipes/578019/    
+#本来用于转换服务器内存等单位用的，现在用不到了    
+def bytes2human(n, format='%(value).1f %(symbol)s', symbols='customary'):
+    SYMBOLS = {
+        'customary'     : ('B', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'),
+        'customary_ext' : ('byte', 'kilo', 'mega', 'giga', 'tera', 'peta', 'exa',
+                           'zetta', 'iotta'),
+        'iec'           : ('Bi', 'Ki', 'Mi', 'Gi', 'Ti', 'Pi', 'Ei', 'Zi', 'Yi'),
+        'iec_ext'       : ('byte', 'kibi', 'mebi', 'gibi', 'tebi', 'pebi', 'exbi',
+                           'zebi', 'yobi'),
+    }
+    n = int(n)
+    if n < 0:
+        raise ValueError("n < 0")
+    symbols = SYMBOLS[symbols]
+    prefix = {}
+    for i, s in enumerate(symbols[1:]):
+        prefix[s] = 1 << (i+1)*10
+    for symbol in reversed(symbols[1:]):
+        if n >= prefix[symbol]:
+            value = float(n) / prefix[symbol]
+            return format % locals()
+    return format % dict(symbol=symbols[0], value=n)
+
+
+def getDiskInfo():
+    diskInfo = {}
+    for i in psutil.disk_partitions():
+        mountpoint = i.mountpoint
+        device = i.device
+        disk_total = bytes2human(psutil.disk_usage(i.mountpoint).total)
+        diskInfo[mountpoint] = {}
+        diskInfo[mountpoint]['device'] = device
+        diskInfo[mountpoint]['total'] = disk_total
+    return diskInfo
+        
+
+
 
 postInfo = {
             'hostinfo':getHostInfo(),
             'hardwareinfo':getHardwareInfo(dmi),
             'cpuinfo':getCpuInfo(),
             'meminfo':getMemInfo(),
-            'networkinfo':getNetworkInfo()
+            'networkinfo':getNetworkInfo(),
+            'diskinfo':getDiskInfo()
             }
 
 url = 'http://192.168.15.125:8000/api/'

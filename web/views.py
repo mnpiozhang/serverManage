@@ -7,7 +7,7 @@ from decorators import is_login_auth,is_admin_auth
 from django.template.context import RequestContext
 from django.template.context_processors import csrf
 from mongoengine.queryset.visitor import Q
-from common  import  Page,page_div,query_page_div,split_form_str
+from common  import  Page,page_div,query_page_div,split_formmem_str,split_formdisk_str
 import datetime
 
 # Create your views here.
@@ -136,7 +136,7 @@ def details(request,id):
             formusernamessh = request.POST.get('formusernamessh',None)
             formpasswordssh = request.POST.get('formpasswordssh',None)
             #处理传进来的内存信息
-            formmemlstname = split_form_str(request.body)
+            formmemlstname = split_formmem_str(request.body)
             #print formmemlstname
             formmem = {}
             for i in formmemlstname:
@@ -150,6 +150,18 @@ def details(request,id):
                                               "size":tmpmeminfo[3]
                                               }
             #print formmem
+            #处理传来的磁盘信息
+            formdisklstname = split_formdisk_str(request.body)
+            formdisk = {}
+            for i in formdisklstname:
+                #有了数组名获取post来的数组
+                tmpdiskinfo = request.POST.getlist(i+"[]",None)
+                print tmpdiskinfo
+                formdisk[formdisklstname[i]] = {
+                                                "device":tmpdiskinfo[0],
+                                                "total":tmpdiskinfo[1],
+                                                }
+
             formhwsn = request.POST.get('formhwsn',None)
             formhwproduct = request.POST.get('formhwproduct',None)
             formhwuuid = request.POST.get('formhwuuid',None)
@@ -172,6 +184,7 @@ def details(request,id):
                            cpuinfo = cpuInfo,
                            changetime = datetime.datetime.now,
                            memoryinfo = formmem,
+                           diskinfo = formdisk,
                            usernamessh = formusernamessh,
                            passwordssh = formpasswordssh,
                            addressssh = formaddressssh,
@@ -213,7 +226,7 @@ def submit(request):
             #print type(formip)
             
             #处理传进来的内存信息
-            formmemlstname = split_form_str(request.body)
+            formmemlstname = split_formmem_str(request.body)
             #print formmemlstname
             formmem = {}
             for i in formmemlstname:
@@ -226,7 +239,17 @@ def submit(request):
                                               "speed":tmpmeminfo[2],
                                               "size":tmpmeminfo[3]
                                               }
-            #print formmem
+            #处理传来的磁盘信息
+            formdisklstname = split_formdisk_str(request.body)
+            formdisk = {}
+            for i in formdisklstname:
+                #有了数组名获取post来的数组
+                tmpdiskinfo = request.POST.getlist(i+"[]",None)
+                print tmpdiskinfo
+                formdisk[formdisklstname[i]] = {
+                                                "device":tmpdiskinfo[0],
+                                                "total":tmpdiskinfo[1],
+                                                }
             formhwsn = request.POST.get('formhwsn',None)
             formhwproduct = request.POST.get('formhwproduct',None)
             formhwuuid = request.POST.get('formhwuuid',None)
@@ -248,7 +271,8 @@ def submit(request):
                                      hardwareinfo = hardwareInfo,
                                      cpuinfo = cpuInfo,
                                      changetime = datetime.datetime.now,
-                                     memoryinfo = formmem
+                                     memoryinfo = formmem,
+                                     diskinfo = formdisk
                                      )
             newhostsubmit.save()
             #print newhostsubmit.id

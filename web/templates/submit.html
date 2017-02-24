@@ -116,7 +116,7 @@ function insertTr(){
     
 	<input type="button" name="memadd" value="增加">
 <script type="text/javascript">
-var fm=2;
+var fm=1;
 $(function(){
     $(':button[name=memadd]').click(function(){
         insertmemTr();
@@ -140,7 +140,60 @@ function insertmemTr(){
     fm++;
 }
 </script>
+
+
+
+    <div class="G_head_title">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="4">磁盘信息</th>
+                </tr>
+            </thead>
+           	<thead>
+				<tr>
+					<th width="25px">挂载分区</th>
+					<th width="20px">设备</th>
+					<th width="80px">总容量</th>
+					<th width="20px">操作</th>
+				</tr>
+			</thead>
+			<tbody id="disktab">
+            </tbody>
+        </table>
+    </div>
     
+	<input type="button" name="diskadd" value="增加">
+<script type="text/javascript">
+var fm=1;
+$(function(){
+    $(':button[name=diskadd]').click(function(){
+        insertdiskTr();
+    })
+    $(':button[name=diskdel]').click(function(){
+        $(this).parents('tr').remove();
+    })
+})
+function insertdiskTr(){
+    var html='';
+    html+='<tr><td width="25px"><input type="text" name="formdisk'+fm.toString()+'" value="mountpoint"></td>';
+    html+='<td width="20px"><input type="text" name="formdisk'+fm.toString()+'[]" value="device"></td>';
+    html+='<td width="80px"><input type="text" name="formdisk'+fm.toString()+'[]" value="total"></td>';
+    html+='<td width="20px"><input type="button" name="diskdel" value="删除"></td></tr>';
+    $('#disktab').append(html);
+    $(':button[name=diskdel]').click(function(){
+        $(this).parents('tr').remove();
+    })
+    fm++;
+}
+</script>
+
+
+
+
+
+
+
     <div class="G_head_title">
         <table class="table table-striped table-bordered">
             <thead>

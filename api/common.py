@@ -25,6 +25,7 @@ def _data_insert(data):
         cpuInfo = data['cpuinfo']
         memInfo = data['meminfo']
         networkInfo = data['networkinfo']
+        diskInfo = data['diskinfo']
         #print hostInfo
         #插入主机信息
         newhost = HostInfo(
@@ -36,7 +37,8 @@ def _data_insert(data):
                           networkinfo = networkInfo,
                           memoryinfo = memInfo,
                           hardwareinfo = hardwareInfo,
-                          cpuinfo = cpuInfo
+                          cpuinfo = cpuInfo,
+                          diskinfo = diskInfo
                           )
         newhost.save()
         return "insert data ok"
@@ -54,7 +56,7 @@ def _data_update(data):
         cpuInfo = data['cpuinfo']
         memInfo = data['meminfo']
         networkInfo = data['networkinfo']
-
+        diskInfo = data['diskinfo']
         updatehost = HostInfo.objects(hostname=hostInfo['hostname'])
 
         updatehost.update(
@@ -66,6 +68,7 @@ def _data_update(data):
                             memoryinfo = memInfo,
                             hardwareinfo = hardwareInfo,
                             cpuinfo = cpuInfo,
+                            diskinfo = diskInfo,
                             changetime = datetime.datetime.now
                           )
         return "update data ok"
