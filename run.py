@@ -9,7 +9,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 """
 
-
+from web.logger import log
 import functools
 import os
 from django.core.wsgi import get_wsgi_application
@@ -53,7 +53,8 @@ def main():
     
 
 if __name__ == '__main__':
-    print "server start"
+    log.info("service start")
+    print "service start"
     main()
 
 
