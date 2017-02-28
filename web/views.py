@@ -142,7 +142,7 @@ def details(request,id):
             for i in formmemlstname:
                 #有了数组名获取post来的数组
                 tmpmeminfo = request.POST.getlist(i+"[]",None)
-                print tmpmeminfo
+                #print tmpmeminfo
                 formmem[formmemlstname[i]] = {
                                               "msn":tmpmeminfo[0],
                                               "type":tmpmeminfo[1],
@@ -156,7 +156,7 @@ def details(request,id):
             for i in formdisklstname:
                 #有了数组名获取post来的数组
                 tmpdiskinfo = request.POST.getlist(i+"[]",None)
-                print tmpdiskinfo
+                #print tmpdiskinfo
                 formdisk[formdisklstname[i]] = {
                                                 "device":tmpdiskinfo[0],
                                                 "total":tmpdiskinfo[1],
@@ -232,7 +232,7 @@ def submit(request):
             for i in formmemlstname:
                 #有了数组名获取post来的数组
                 tmpmeminfo = request.POST.getlist(i+"[]",None)
-                print tmpmeminfo
+                #print tmpmeminfo
                 formmem[formmemlstname[i]] = {
                                               "msn":tmpmeminfo[0],
                                               "type":tmpmeminfo[1],
@@ -245,7 +245,7 @@ def submit(request):
             for i in formdisklstname:
                 #有了数组名获取post来的数组
                 tmpdiskinfo = request.POST.getlist(i+"[]",None)
-                print tmpdiskinfo
+                #print tmpdiskinfo
                 formdisk[formdisklstname[i]] = {
                                                 "device":tmpdiskinfo[0],
                                                 "total":tmpdiskinfo[1],
@@ -380,7 +380,7 @@ def web_terminal(request,id):
     UserInfoObj = UserInfo.objects.get(username=request.session.get('username',None))
     HostInfoObj = HostInfo.objects.get(id=id)
     if all([HostInfoObj.usernamessh,HostInfoObj.passwordssh,HostInfoObj.addressssh,HostInfoObj.portssh]):
-        print locals()
+        #print locals()
         return render_to_response('ws.html', locals())
     else:
         return HttpResponse("ssh information of this host is not configured , you can not link remote host")
