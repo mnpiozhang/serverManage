@@ -7,7 +7,7 @@ from decorators import is_login_auth,is_admin_auth
 from django.template.context import RequestContext
 from django.template.context_processors import csrf
 from mongoengine.queryset.visitor import Q
-from common  import  Page,page_div,query_page_div,split_formmem_str,split_formdisk_str
+from common  import  Page,page_div,query_page_div,split_formmem_str,split_formdisk_str,monogodb_mapreduce_categories_calc
 import datetime
 
 # Create your views here.
@@ -350,46 +350,16 @@ def infoshow(request):
         ret['UserInfoObj'] = UserInfoObj
         if request.GET.get("show",None) == "1":
             #通过使用mongodb的mapreduce聚合计算数据
-            #这里emit里的1为伪赋值，目的是计算this.hardwareinfo.Manufacturer不同值的数量
-            mapfunc = """
-function() {
-     emit(this.os,1);
-}
-"""
-
-            reducefunc = """
-function reduce(key, values) {
-    return values.length;
-}
-"""
-
-            datadic = {}
-            for i in HostInfo.objects.map_reduce(mapfunc,reducefunc,'inline'):
-                datadic[i.key] = i.value
+            #这里emit里的1为伪赋值，目的是计算this.os不同值的数量
             ret["result"] = "1"
-            ret["data"] = datadic
+            ret["data"] = monogodb_mapreduce_categories_calc(HostInfo,"this.os")
             return render_to_response('infoshow.html',ret,context_instance=RequestContext(request))
 
         elif request.GET.get("show",None) == "2":
             #通过使用mongodb的mapreduce聚合计算数据
             #这里emit里的1为伪赋值，目的是计算this.hardwareinfo.Manufacturer不同值的数量
-            mapfunc = """
-function() {
-     emit(this.hardwareinfo.Manufacturer,1);
-}
-"""
-
-            reducefunc = """
-function reduce(key, values) {
-    return values.length;
-}
-"""
-
-            datadic = {}
-            for i in HostInfo.objects.map_reduce(mapfunc,reducefunc,'inline'):
-                datadic[i.key] = i.value
             ret["result"] = "2"
-            ret["data"] = datadic
+            ret["data"] = monogodb_mapreduce_categories_calc(HostInfo,"this.hardwareinfo.Manufacturer")
             return render_to_response('infoshow.html',ret,context_instance=RequestContext(request))
         elif request.GET.get("show",None) == "3":
             datadic = {}

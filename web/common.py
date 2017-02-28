@@ -159,3 +159,24 @@ def split_formdisk_str(str):
         if re.match('formdisk\d+$',k):
             tmpdic[k] = v
     return tmpdic
+
+
+#mongodb MapReduce计算返回值
+#例如统计数量的图
+#字符串format是{{}}双大括号是对{}单个大括号的转义
+def monogodb_mapreduce_categories_calc(monogo_model_object,categories_name):
+    mapfunc = """
+function() {{
+emit({categories_name},1);
+}}
+""".format(categories_name=categories_name)
+
+    reducefunc = """
+function reduce(key, values) {{
+return values.length;
+}}
+"""
+    datadic = {}
+    for i in monogo_model_object.objects.map_reduce(mapfunc,reducefunc,'inline'):
+        datadic[i.key] = i.value
+    return datadic

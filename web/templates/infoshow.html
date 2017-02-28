@@ -32,7 +32,7 @@
     // 指定图表的配置项和数据
     var option = {
         title: {
-            text: '标签统计'
+            text: '根据操作系统展示'
         },
         color: ['#704d4e'],
         tooltip: {
@@ -79,6 +79,10 @@
 	{% ifequal result "2" %}
 
     var option = {
+        title: {
+            text: '根据厂商',
+            x: 'center'
+        },
         tooltip: {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
@@ -128,6 +132,10 @@
 	{% ifequal result "3" %}
 
     var option = {
+        title: {
+            text: '是否发布',
+            x: 'center'
+        },
         tooltip: {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
