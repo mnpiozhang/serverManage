@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 import logging
+import logging.config
 import os
 from datetime import datetime
 
@@ -46,5 +47,7 @@ LOGGING = {
 }
 def set_log():
     logging.config.dictConfig(LOGGING)
-    logging.getLogger("sm")
+    return logging.getLogger("sm")
+
+log = set_log()
 

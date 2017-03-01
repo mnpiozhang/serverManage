@@ -9,7 +9,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 """
 
-from web.logger import set_log
+from web.logger import log
 import functools
 import os
 from django.core.wsgi import get_wsgi_application
@@ -22,7 +22,7 @@ from tornado.options import define, options
 import tornado.wsgi
 from webssh.wth import WebTerminalHandler
 from webssh.ioloop import IOLoop
-import logging
+
 
 def django_request_support(func):
     @functools.wraps(func)
@@ -43,7 +43,7 @@ def django_request_support(func):
 define('port', type=int, default=8000)
 def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "serverManage.settings")
-    
+    os.environ["TZ"] = "Asia/Shanghai"
     wsgi_app  = get_wsgi_application()
     container = tornado.wsgi.WSGIContainer(wsgi_app)
     tornado_app = tornado.web.Application(
@@ -54,8 +54,8 @@ def main():
         ])
     server = tornado.httpserver.HTTPServer(tornado_app)
     server.listen(options.port, address='0.0.0.0')
-    set_log()
-    logging.info("service start")
+    log.info("service start")
+    #log.info(os.getenv("TZ"))
     IOLoop.instance().start()
     tornado.ioloop.IOLoop.instance().start()
     

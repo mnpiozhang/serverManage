@@ -15,4 +15,7 @@ EXPOSE 8000
 
 RUN pip install mysqlclient psycopg2 django=="$DJANGO_VERSION"  mongoengine=="0.11.0" paramiko=="1.17.3" tornado=="4.4.2"
 
+ENV TZ Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 CMD ["python", "run.py"]

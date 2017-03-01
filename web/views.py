@@ -9,8 +9,7 @@ from django.template.context_processors import csrf
 from mongoengine.queryset.visitor import Q
 from common  import  Page,page_div,query_page_div,split_formmem_str,split_formdisk_str,monogodb_mapreduce_categories_calc
 import datetime
-import logging
-#from .logger import log
+from .logger import log
 # Create your views here.
 
 #登陆
@@ -28,7 +27,7 @@ def login(request):
             if count == 1:
                 request.session['username'] = username
                 request.session['login_auth'] = True
-                logging.info("user login : {}".format(username))
+                log.info("user login : {}".format(username))
                 return redirect('/web/index/')
             else:
                 ret['status']='password error'
@@ -39,7 +38,7 @@ def login(request):
 #登出
 @is_login_auth
 def logout(request):
-    logging.info("user logout : {}".format(request.session['username']))
+    log.info("user logout : {}".format(request.session['username']))
     del request.session['login_auth']
     del request.session['username']
     return redirect("/web/login/")
