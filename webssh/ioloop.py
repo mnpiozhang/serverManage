@@ -3,7 +3,7 @@ __author__ = 'xsank'
 import select
 import socket
 import errno
-import logging
+#import logging
 from threading import Thread
 
 from utils import Platform
