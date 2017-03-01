@@ -44,7 +44,9 @@ define('port', type=int, default=8000)
 def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "serverManage.settings")
     wsgi_app  = get_wsgi_application()
-    #即使直接的docker镜像已经配置了时区的环境变量,但是在调用django的get_wsgi_application()方法后,就又变回UTC时区了.所以在下面重新定义时区环境变量
+    #即使直接的docker镜像已经配置了时区的环境变量,但是在调用django的get_wsgi_application()方法后,就又变回UTC时区了.所以在下面重新定义时区环境变量  
+    #我太TM2了,原来调用get_wsgi_application()的时候,相当于django把python运行的环境变量又撸了一遍.
+    #我看django的配置文件里TIME_ZONE = 'UTC'然后USE_TZ = True....= = 忘记改了....算了就这样吧,下面的代码也不改了.....
     os.environ["TZ"] = "Asia/Shanghai"
     container = tornado.wsgi.WSGIContainer(wsgi_app)
     tornado_app = tornado.web.Application(
