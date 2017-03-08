@@ -1,0 +1,12 @@
+version: '2'
+services:
+  smproj:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8001:8000"
+    depends_on:
+      -  mongo
+  mongo:
+      image: mongo
